@@ -15,7 +15,7 @@ class MainActivity : BaseActivity() {
     }
 
     private fun setUpView() = with(bindingMainActivity) {
-        webView.loadUrl("http://www.admisionunt.info/")
+        webView.loadUrl("https://www.android.com/")
     }
 
     companion object {
@@ -24,6 +24,4 @@ class MainActivity : BaseActivity() {
             context.startActivity(intent)
         }
     }
-
-
 }
