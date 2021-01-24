@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import com.afoxplus.appdemo.databinding.ActivityMainBinding
 import com.afoxplus.appdemo.ui.BaseActivity
+import com.afoxplus.appdemo.ui.chat.ChatBotActivity
 
 class MainActivity : BaseActivity() {
     private lateinit var bindingMainActivity: ActivityMainBinding
@@ -16,6 +17,9 @@ class MainActivity : BaseActivity() {
 
     private fun setUpView() = with(bindingMainActivity) {
         webView.loadUrl("https://www.android.com/")
+        chatBotFloating.setOnClickListener {
+            ChatBotActivity.start(this@MainActivity)
+        }
     }
 
     companion object {

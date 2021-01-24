@@ -17,9 +17,8 @@ class SplashActivity : BaseActivity() {
         setContentView(bindingSplashActivity.root)
         lifecycleScope.launch {
             delay(3000)
+            finish()
             MainActivity.start(this@SplashActivity)
         }
     }
-
-
 }
