@@ -14,7 +14,4 @@
         <!-- Customize your theme here. -->
     </style>
 
-    <style name="SplashTheme" parent="Theme.AppDemo">
-        <item name="colorSecondaryVariant">@color/black</item>
-    </style>
 </resources>
