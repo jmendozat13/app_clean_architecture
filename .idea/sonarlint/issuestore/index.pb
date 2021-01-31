@@ -18,3 +18,5 @@ i
 9app/src/main/java/com/afoxplus/appdemo/ui/BaseActivity.kt,0\3\03407fff2ca5170250f87e255a1b70721c8e4e99
 r
 Bapp/src/main/java/com/afoxplus/appdemo/ui/splash/SplashActivity.kt,b\4\b41da1ef0919d8c6d50c86657cf72ef9250df18a
+q
+Aapp/src/main/java/com/afoxplus/appdemo/ui/chat/ChatBotActivity.kt,a\6\a64cd076a33f7780270132678931f83ab1f91c09
