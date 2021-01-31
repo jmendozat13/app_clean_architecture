@@ -25,8 +25,17 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled false
+            debuggable false
+            shrinkResources true
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField 'String', "BASE_URL", BASE_URL_PROD
+        }
+        debug {
+            debuggable true
+            shrinkResources false
+            minifyEnabled false
+            buildConfigField 'String', "BASE_URL", BASE_URL_DEV
         }
     }
     compileOptions {
@@ -46,6 +55,7 @@ dependencies {
     implementation 'com.google.android.material:material:1.2.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     implementation project(path: ':domain')
+    implementation project(path: ':data')
     testImplementation 'junit:junit:4.13.1'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
