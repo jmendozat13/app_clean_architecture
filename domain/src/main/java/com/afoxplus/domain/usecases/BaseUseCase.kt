@@ -1,4 +1,5 @@
 package com.afoxplus.domain.usecases
 
-class BaseUseCase {
-}
+import org.koin.core.KoinComponent
+
+open class BaseUseCase : KoinComponent

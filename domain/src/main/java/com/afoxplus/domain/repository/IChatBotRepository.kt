@@ -1,7 +1,7 @@
-package com.afoxplus.data.source
+package com.afoxplus.domain.repository
 
 import com.afoxplus.domain.entities.ChatBot
 
-interface IChatBotDataSource : BaseDataSource {
+interface IChatBotRepository : BaseRepository {
     suspend fun sendMessage(inputMessage: String): ChatBot
 }
