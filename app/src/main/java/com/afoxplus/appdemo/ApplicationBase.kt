@@ -4,7 +4,7 @@ import android.app.Application
 import com.afoxplus.data.di.BASE_URL
 import com.afoxplus.data.di.repositoryModule
 import com.afoxplus.data.di.retrofitModule
-import com.afoxplus.data.source.network.di.dataSourceModule
+import com.afoxplus.data.source.di.dataSourceModule
 import com.afoxplus.domain.di.useCaseModule
 import org.koin.android.ext.android.getKoin
 import org.koin.android.ext.koin.androidContext

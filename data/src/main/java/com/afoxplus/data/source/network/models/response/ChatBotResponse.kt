@@ -7,5 +7,5 @@ data class ChatBotResponse(
     @SerializedName("message")
     val message: String? = null
 ) {
-    fun toChatBotEntity() = ChatBot(messageResponse = message ?: "")
+    fun toChatBotEntity(): ChatBot = ChatBot(messageResponse = message ?: "")
 }

@@ -11,6 +11,6 @@ const val BASE_URL = "BASE_URL"
 val retrofitModule = module {
     single { providerGsonConverterFactory() }
     single { ApiInterceptor() }
-    single { providerOkHttpClient(get(), get(), get()) }
+    single { providerOkHttpClient(get(), get()) }
     single { providerRetrofit(getProperty(BASE_URL), get(), get()) }
 }

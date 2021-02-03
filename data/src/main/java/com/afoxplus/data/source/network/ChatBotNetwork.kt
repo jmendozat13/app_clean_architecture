@@ -15,7 +15,7 @@ class ChatBotNetwork : IChatBotDataSource, BaseNetwork() {
     override suspend fun sendMessage(inputMessage: String): ChatBot {
         val response = chatBotService.sendMessage(ChatBotRequest(inputMessage = inputMessage))
         var chatBot: ChatBot? = null
-        response.onSuccess { chatBot = it.toChatBotEntity() }
+        response.onSuccess { chatBotResponse -> chatBot = chatBotResponse.toChatBotEntity()  }
         response.onFailure { throw it.throwable }
         return chatBot ?: throw GenericException()
     }

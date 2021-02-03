@@ -1,4 +1,4 @@
-package com.afoxplus.data.source.network.di.providers
+package com.afoxplus.data.source.di.providers
 
 import com.afoxplus.data.source.network.services.IChatBotService
 import retrofit2.Retrofit

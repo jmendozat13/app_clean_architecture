@@ -9,6 +9,7 @@ class ChatBotRepository : IChatBotRepository {
 
     private val chatBotDataSource: IChatBotDataSource by inject()
 
+
     override suspend fun sendMessage(inputMessage: String): ChatBot =
         chatBotDataSource.sendMessage(inputMessage)
 }
