@@ -1,15 +1,39 @@
 package com.afoxplus.data.repository
 
 import com.afoxplus.data.source.IChatBotDataSource
-import com.afoxplus.domain.entities.ChatBot
+import com.afoxplus.data.source.IMessageDataSource
+import com.afoxplus.domain.entities.Message
+import com.afoxplus.domain.entities.TypeMessage
 import com.afoxplus.domain.repository.IChatBotRepository
 import org.koin.core.inject
+import java.util.*
 
 class ChatBotRepository : IChatBotRepository {
 
     private val chatBotDataSource: IChatBotDataSource by inject()
+    private val messageDataSource: IMessageDataSource by inject()
 
 
-    override suspend fun sendMessage(inputMessage: String): ChatBot =
-        chatBotDataSource.sendMessage(inputMessage)
+    override suspend fun sendMessage(inputMessage: String) {
+        val startDate: Calendar = Calendar.getInstance()
+        messageDataSource.deleteLoadMessage()
+        messageDataSource.saveMessage(
+            Message(
+                type = TypeMessage.REQUEST,
+                content = inputMessage,
+                dateTime = startDate.time
+            )
+        )
+        messageDataSource.saveMessageLoad()
+        val chatBot = chatBotDataSource.sendMessage(inputMessage)
+        messageDataSource.deleteLoadMessage()
+        messageDataSource.saveMessage(
+            Message(
+                type = TypeMessage.RESPONSE,
+                content = chatBot.messageResponse,
+                dateTime = startDate.time
+            )
+        )
+    }
+
 }

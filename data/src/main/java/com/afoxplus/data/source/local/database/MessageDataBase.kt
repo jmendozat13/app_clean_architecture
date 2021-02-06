@@ -8,6 +8,7 @@ import com.afoxplus.domain.entities.TypeMessage
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import org.koin.core.inject
+import java.util.*
 
 class MessageDataBase : IMessageDataSource {
 
@@ -19,6 +20,19 @@ class MessageDataBase : IMessageDataSource {
 
     override suspend fun deleteLoadMessage() {
         messageDao.deleteMessage(type = TypeMessage.LOADING.name)
+    }
+
+    override suspend fun saveMessageLoad() {
+        val startDate: Calendar = Calendar.getInstance()
+        messageDao.insert(
+            MessageModel.toMessageModel(
+                Message(
+                    type = TypeMessage.LOADING,
+                    content = "",
+                    dateTime = startDate.time
+                )
+            )
+        )
     }
 
     override val allMessages: Flow<List<Message>>
