@@ -5,20 +5,19 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
-import com.afoxplus.data.source.local.database.dao.HistoryMessageDao
-import com.afoxplus.data.source.local.database.model.HistoryMessageModel
-import kotlinx.coroutines.CoroutineScope
+import com.afoxplus.data.source.local.database.dao.MessageDao
+import com.afoxplus.data.source.local.database.model.MessageModel
 
 
 @Database(
-    entities = [HistoryMessageModel::class],
+    entities = [MessageModel::class],
     version = 1,
     exportSchema = false
 )
 @TypeConverters(TypeConverts::class)
 abstract class AppDemoDataBase : RoomDatabase() {
 
-    abstract val historyMessageDao: HistoryMessageDao
+    abstract val messageDao: MessageDao
 
     companion object {
         fun getDatabase(

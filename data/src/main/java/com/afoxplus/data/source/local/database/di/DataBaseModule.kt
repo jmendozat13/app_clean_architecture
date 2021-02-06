@@ -6,5 +6,5 @@ import org.koin.dsl.module
 
 val dataBaseModule = module {
     single { AppDemoDataBase.getDatabase(androidContext(), "${androidContext().packageName}.db") }
-    single { get<AppDemoDataBase>().historyMessageDao }
+    single { get<AppDemoDataBase>().messageDao }
 }
