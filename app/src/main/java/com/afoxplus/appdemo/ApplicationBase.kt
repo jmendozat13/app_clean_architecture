@@ -5,6 +5,8 @@ import com.afoxplus.data.di.BASE_URL
 import com.afoxplus.data.di.repositoryModule
 import com.afoxplus.data.di.retrofitModule
 import com.afoxplus.data.source.di.dataSourceModule
+import com.afoxplus.data.source.local.database.di.dataBaseModule
+import com.afoxplus.data.source.network.di.networkModule
 import com.afoxplus.domain.di.useCaseModule
 import org.koin.android.ext.android.getKoin
 import org.koin.android.ext.koin.androidContext
@@ -21,6 +23,8 @@ class ApplicationBase : Application() {
             modules(
                 listOf(
                     retrofitModule,
+                    dataBaseModule,
+                    networkModule,
                     dataSourceModule,
                     repositoryModule,
                     useCaseModule
