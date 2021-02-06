@@ -1,6 +1,6 @@
-package com.afoxplus.data.source.util.extension
+package com.afoxplus.data.source.network.util.extension
 
-import com.afoxplus.data.source.util.HttpError
+import com.afoxplus.data.source.network.util.HttpError
 import com.afoxplus.domain.exceptions.GenericException
 import retrofit2.Response
 

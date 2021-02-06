@@ -1,4 +1,4 @@
-package com.afoxplus.data.source.util
+package com.afoxplus.data.source.network.util
 
 class HttpError(
     val throwable: Throwable,
