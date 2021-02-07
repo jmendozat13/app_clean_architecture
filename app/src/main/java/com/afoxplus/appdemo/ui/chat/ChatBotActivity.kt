@@ -3,6 +3,7 @@ package com.afoxplus.appdemo.ui.chat
 import android.content.Context
 import android.content.Intent
 import androidx.lifecycle.ViewModelProvider
+import com.afoxplus.appdemo.R
 import com.afoxplus.appdemo.databinding.ActivityChatbotBinding
 import com.afoxplus.appdemo.ui.BaseActivity
 
@@ -22,7 +23,8 @@ class ChatBotActivity : BaseActivity() {
     }
 
     override fun setUpView() {
-        //Do nothing
+        bindingChatBot.toolbar.textTitle.text = getString(R.string.home_chat_description)
+        bindingChatBot.toolbar.btnBack.setOnClickListener { onBackPressed() }
     }
 
     override fun viewModelObserver() {
