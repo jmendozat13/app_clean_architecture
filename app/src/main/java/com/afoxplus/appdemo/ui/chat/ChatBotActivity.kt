@@ -28,7 +28,10 @@ class ChatBotActivity : BaseActivity() {
     }
 
     override fun viewModelObserver() {
-        viewModel.allMessages.observe(this) { adapter.submitList(it) }
+        viewModel.allMessages.observe(this) {
+            adapter.submitList(it)
+            bindingChatBot.recycler.scrollToPosition(it.size - 1)
+        }
     }
 
     companion object {
