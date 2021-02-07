@@ -2,7 +2,6 @@ package com.afoxplus.appdemo.ui.chat
 
 import android.content.Context
 import android.content.Intent
-import android.util.Log
 import androidx.lifecycle.ViewModelProvider
 import com.afoxplus.appdemo.databinding.ActivityChatbotBinding
 import com.afoxplus.appdemo.ui.BaseActivity
@@ -11,10 +10,12 @@ import com.afoxplus.appdemo.ui.BaseActivity
 class ChatBotActivity : BaseActivity() {
     private lateinit var bindingChatBot: ActivityChatbotBinding
     private lateinit var viewModel: ChatBotViewModel
+    private val adapter: ChatBotAdapter by lazy { ChatBotAdapter() }
 
     override fun onCreate() {
         bindingChatBot = ActivityChatbotBinding.inflate(layoutInflater)
         bindingChatBot.lifecycleOwner = this
+        bindingChatBot.adapter = adapter
         viewModel = ViewModelProvider(this).get(ChatBotViewModel::class.java)
         setContentView(bindingChatBot.root)
     }
@@ -24,7 +25,7 @@ class ChatBotActivity : BaseActivity() {
     }
 
     override fun viewModelObserver() {
-        viewModel.allMessages.observe(this) { it.forEach { item -> Log.d("TAG", "$item") } }
+        viewModel.allMessages.observe(this) { adapter.submitList(it) }
     }
 
     companion object {
@@ -33,6 +34,4 @@ class ChatBotActivity : BaseActivity() {
             context.startActivity(intent)
         }
     }
-
-
 }

@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">AppDemo</string>
     <string name="home_chat_description">Chatbot</string>
+    <string name="chat_loading">***</string>
 </resources>
