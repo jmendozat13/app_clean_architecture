@@ -4,7 +4,7 @@ import com.afoxplus.domain.entities.ChatBot
 import com.google.gson.annotations.SerializedName
 
 data class ChatBotResponse(
-    @SerializedName("message")
+    @SerializedName("outputmessage")
     val message: String? = null
 ) {
     fun toChatBotEntity(): ChatBot = ChatBot(messageResponse = message ?: "")

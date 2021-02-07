@@ -18,25 +18,30 @@ class ChatBotRepository : IChatBotRepository {
         get() = messageDataSource.allMessages
 
     override suspend fun sendMessage(inputMessage: String) {
-        val startDate: Calendar = Calendar.getInstance()
-        messageDataSource.deleteLoadMessage()
-        messageDataSource.saveMessage(
-            Message(
-                type = TypeMessage.REQUEST,
-                content = inputMessage,
-                dateTime = startDate.time
+        try {
+            val startDate: Calendar = Calendar.getInstance()
+            messageDataSource.deleteLoadMessage()
+            messageDataSource.saveMessage(
+                Message(
+                    type = TypeMessage.REQUEST,
+                    content = inputMessage,
+                    dateTime = startDate.time
+                )
             )
-        )
-        messageDataSource.saveMessageLoad()
-        val chatBot = chatBotDataSource.sendMessage(inputMessage)
-        messageDataSource.deleteLoadMessage()
-        messageDataSource.saveMessage(
-            Message(
-                type = TypeMessage.RESPONSE,
-                content = chatBot.messageResponse,
-                dateTime = startDate.time
+            messageDataSource.saveMessageLoad()
+            val chatBot = chatBotDataSource.sendMessage(inputMessage)
+            messageDataSource.deleteLoadMessage()
+            messageDataSource.saveMessage(
+                Message(
+                    type = TypeMessage.RESPONSE,
+                    content = chatBot.messageResponse,
+                    dateTime = startDate.time
+                )
             )
-        )
+        } catch (ex: Throwable) {
+            messageDataSource.deleteLoadMessage()
+            throw ex
+        }
     }
 
 }
