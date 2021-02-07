@@ -15,8 +15,9 @@ class ChatBotActivity : BaseActivity() {
     override fun onCreate() {
         bindingChatBot = ActivityChatbotBinding.inflate(layoutInflater)
         bindingChatBot.lifecycleOwner = this
-        bindingChatBot.adapter = adapter
         viewModel = ViewModelProvider(this).get(ChatBotViewModel::class.java)
+        bindingChatBot.adapter = adapter
+        bindingChatBot.viewModel = viewModel
         setContentView(bindingChatBot.root)
     }
 

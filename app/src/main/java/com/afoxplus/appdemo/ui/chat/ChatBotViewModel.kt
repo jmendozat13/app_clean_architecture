@@ -1,6 +1,5 @@
 package com.afoxplus.appdemo.ui.chat
 
-
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -16,7 +15,7 @@ class ChatBotViewModel : BaseViewModel() {
     private val chatBotUseCase: ChatBotUseCase by inject()
     val allMessages: LiveData<List<Message>> = chatBotUseCase.allMessages.asLiveData()
     var inputText = MutableLiveData<String>()
-    
+
     fun onClickSendMessage() {
         viewModelScope.launch {
             try {
