@@ -5,6 +5,7 @@ import com.afoxplus.data.source.IMessageDataSource
 import com.afoxplus.domain.entities.Message
 import com.afoxplus.domain.entities.TypeMessage
 import com.afoxplus.domain.repository.IChatBotRepository
+import kotlinx.coroutines.flow.Flow
 import org.koin.core.inject
 import java.util.*
 
@@ -13,6 +14,8 @@ class ChatBotRepository : IChatBotRepository {
     private val chatBotDataSource: IChatBotDataSource by inject()
     private val messageDataSource: IMessageDataSource by inject()
 
+    override val allMessages: Flow<List<Message>>
+        get() = messageDataSource.allMessages
 
     override suspend fun sendMessage(inputMessage: String) {
         val startDate: Calendar = Calendar.getInstance()

@@ -22,4 +22,12 @@ class SplashActivity : BaseActivity() {
             MainActivity.start(this@SplashActivity)
         }
     }
+
+    override fun setUpView() {
+        // Do nothing
+    }
+
+    override fun viewModelObserver() {
+        // Do nothing
+    }
 }

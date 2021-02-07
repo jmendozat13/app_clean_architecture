@@ -15,11 +15,15 @@ class MainActivity : BaseActivity() {
         setUpView()
     }
 
-    private fun setUpView() = with(bindingMainActivity) {
+    override fun setUpView() = with(bindingMainActivity) {
         webView.loadUrl("https://www.android.com/")
         chatBotFloating.setOnClickListener {
             ChatBotActivity.start(this@MainActivity)
         }
+    }
+
+    override fun viewModelObserver() {
+        //Do nothing
     }
 
     companion object {
