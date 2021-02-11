@@ -1,6 +1,7 @@
 package com.afoxplus.appdemo
 
 import android.app.Application
+import com.afoxplus.appdemo.di.viewModelModule
 import com.afoxplus.data.di.repositoryModule
 import com.afoxplus.data.source.di.dataSourceModule
 import com.afoxplus.data.source.local.database.di.dataBaseModule
@@ -27,7 +28,8 @@ class ApplicationBase : Application() {
                     networkModule,
                     dataSourceModule,
                     repositoryModule,
-                    useCaseModule
+                    useCaseModule,
+                    viewModelModule
                 )
             )
 

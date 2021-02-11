@@ -7,6 +7,6 @@ import com.afoxplus.data.source.network.ChatBotNetwork
 import org.koin.dsl.module
 
 val dataSourceModule = module {
-    single<IChatBotDataSource> { ChatBotNetwork() }
-    single<IMessageDataSource> { MessageDataBase() }
+    factory<IChatBotDataSource> { ChatBotNetwork() }
+    factory<IMessageDataSource> { MessageDataBase() }
 }

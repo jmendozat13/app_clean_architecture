@@ -5,5 +5,5 @@ import com.afoxplus.domain.repository.IChatBotRepository
 import org.koin.dsl.module
 
 val repositoryModule = module {
-    single<IChatBotRepository> { ChatBotRepository() }
+    factory<IChatBotRepository> { ChatBotRepository() }
 }

@@ -2,21 +2,20 @@ package com.afoxplus.appdemo.ui.chat
 
 import android.content.Context
 import android.content.Intent
-import androidx.lifecycle.ViewModelProvider
 import com.afoxplus.appdemo.R
 import com.afoxplus.appdemo.databinding.ActivityChatbotBinding
 import com.afoxplus.appdemo.ui.BaseActivity
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
 class ChatBotActivity : BaseActivity() {
     private lateinit var bindingChatBot: ActivityChatbotBinding
-    private lateinit var viewModel: ChatBotViewModel
+    private val viewModel: ChatBotViewModel by viewModel()
     private val adapter: ChatBotAdapter by lazy { ChatBotAdapter() }
 
     override fun onCreate() {
         bindingChatBot = ActivityChatbotBinding.inflate(layoutInflater)
         bindingChatBot.lifecycleOwner = this
-        viewModel = ViewModelProvider(this).get(ChatBotViewModel::class.java)
         bindingChatBot.adapter = adapter
         bindingChatBot.viewModel = viewModel
         setContentView(bindingChatBot.root)

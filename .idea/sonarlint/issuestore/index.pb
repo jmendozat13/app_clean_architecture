@@ -34,8 +34,6 @@ m
 Tdata/src/main/java/com/afoxplus/data/source/local/database/config/AppDemoDataBase.kt,5\1\5199fc136c102b5487c0296399aba0da122d56f8
 Å
 Qdata/src/main/java/com/afoxplus/data/source/local/database/config/TypeConverts.kt,c\1\c1b56b7508efbe1dc0a4158029dfda86840af198
-i
-9data/src/main/java/com/afoxplus/data/di/RetrofitModule.kt,e\b\ebd0515ef9f745f525035d977c312fccd892a793
 k
 ;data/src/main/java/com/afoxplus/data/di/RepositoryModule.kt,e\8\e89d2229a84c82629413476e8d7c00c1138002c6
 i
@@ -44,8 +42,6 @@ w
 Gdata/src/main/java/com/afoxplus/data/source/network/di/NetworkModule.kt,1\5\153f95484fe06a386351fc0604ae5398a49dd6cc
 É
 Sdata/src/main/java/com/afoxplus/data/source/network/di/providers/ServiceProvider.kt,3\9\39f327294f81501f20654eed3c055bc8f31e1e08
-s
-Cdata/src/main/java/com/afoxplus/data/di/providers/ApiInterceptor.kt,6\4\647e873db1ce922a7251111f626c8fb2e7c37211
 p
 @domain/src/main/java/com/afoxplus/domain/entities/TypeMessage.kt,7\4\74686f7386e0735035ee93c011757bbc8508ade3
 
@@ -88,3 +84,11 @@ p
 @app/src/main/java/com/afoxplus/appdemo/ui/chat/ChatBotAdapter.kt,5\c\5c2af638cfd42c4459f580bf64071614a2aa90fe
 r
 Bapp/src/main/java/com/afoxplus/appdemo/ui/chat/ChatBotViewModel.kt,1\5\152ec0a8c5817195f302bd6ecd4e85103772b8d4
+Ü
+Vdata/src/main/java/com/afoxplus/data/source/network/models/response/ChatBotResponse.kt,7\c\7c93d62e3e0804973ecc7feca2fdb8f13ed91dfb
+Ñ
+Tdata/src/main/java/com/afoxplus/data/source/network/di/providers/RetrofitProvider.kt,f\e\fe62e44712159b8db64178d12b6aa05cdbb4d3c1
+Ç
+Rdata/src/main/java/com/afoxplus/data/source/network/di/providers/ApiInterceptor.kt,d\f\dfa50276a1d3a5e20eec01ce29203e936438cfef
+x
+Hdata/src/main/java/com/afoxplus/data/source/network/di/RetrofitModule.kt,8\4\84b213e1c5187f5ac044034c3a3ffb419343183b

@@ -6,9 +6,9 @@ import org.koin.dsl.module
 const val BASE_URL = "BASE_URL"
 
 val retrofitModule = module {
-    single { providerHttpLoggingInterceptor() }
-    single { providerGsonConverterFactory() }
-    single { ApiInterceptor() }
-    single { providerOkHttpClient(get(), get(), get()) }
-    single { providerRetrofit(getProperty(BASE_URL), get(), get()) }
+    factory { providerHttpLoggingInterceptor() }
+    factory { providerGsonConverterFactory() }
+    factory { ApiInterceptor() }
+    factory { providerOkHttpClient(get(), get(), get()) }
+    factory { providerRetrofit(getProperty(BASE_URL), get(), get()) }
 }

@@ -4,5 +4,5 @@ import com.afoxplus.data.source.network.di.providers.providerChatBotService
 import org.koin.dsl.module
 
 val networkModule = module {
-    single { providerChatBotService(get()) }
+    factory { providerChatBotService(get()) }
 }

@@ -5,6 +5,6 @@ import org.koin.android.ext.koin.androidContext
 import org.koin.dsl.module
 
 val dataBaseModule = module {
-    single { AppDemoDataBase.getDatabase(androidContext(), "${androidContext().packageName}.db") }
-    single { get<AppDemoDataBase>().messageDao }
+    factory { AppDemoDataBase.getDatabase(androidContext(), "${androidContext().packageName}.db") }
+    factory { get<AppDemoDataBase>().messageDao }
 }
