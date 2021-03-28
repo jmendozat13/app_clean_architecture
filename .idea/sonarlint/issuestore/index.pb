@@ -92,3 +92,13 @@ Tdata/src/main/java/com/afoxplus/data/source/network/di/providers/RetrofitProvid
 Rdata/src/main/java/com/afoxplus/data/source/network/di/providers/ApiInterceptor.kt,d\f\dfa50276a1d3a5e20eec01ce29203e936438cfef
 x
 Hdata/src/main/java/com/afoxplus/data/source/network/di/RetrofitModule.kt,8\4\84b213e1c5187f5ac044034c3a3ffb419343183b
+C
+domain/build.gradle,a\3\a3021bb5ba623a461b5fdb89ae51923a4945c354
+u
+Edomain/src/main/java/com/afoxplus/domain/repository/BaseRepository.kt,6\e\6ec817ac426dbe503725c6756e99c4f4a921c9f4
+p
+@domain/src/main/java/com/afoxplus/domain/usecases/BaseUseCase.kt,4\b\4b38fae1401b65861fe7073055b882e34b4e1233
+w
+Gdomain/src/main/java/com/afoxplus/domain/exceptions/GenericException.kt,c\4\c415af8dd505a73ae693d09661b24600b785f8c2
+r
+Bdata/src/main/java/com/afoxplus/data/source/network/BaseNetwork.kt,5\7\57448e9a2d3f3866385fd486ec7d6bdfea5d7449
