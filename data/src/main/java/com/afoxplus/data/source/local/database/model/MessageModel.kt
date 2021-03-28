@@ -3,6 +3,7 @@ package com.afoxplus.data.source.local.database.model
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.afoxplus.domain.entities.Message
+import com.afoxplus.domain.entities.OptionMessage
 import com.afoxplus.domain.entities.TypeMessage
 import java.util.*
 
@@ -19,7 +20,12 @@ data class MessageModel(
         id = id,
         type = TypeMessage.valueOf(type),
         content = content,
-        dateTime = dateTime
+        dateTime = dateTime,
+        options = listOf(
+            OptionMessage(name = "Admision", id = 1),
+            OptionMessage(name = "Matriculas", id = 2),
+            OptionMessage(name = "Como inicio una huelga?", id = 3)
+        )
     )
 
     companion object {

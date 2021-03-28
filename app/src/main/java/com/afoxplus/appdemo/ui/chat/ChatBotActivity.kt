@@ -5,6 +5,7 @@ import android.content.Intent
 import com.afoxplus.appdemo.R
 import com.afoxplus.appdemo.databinding.ActivityChatbotBinding
 import com.afoxplus.appdemo.ui.BaseActivity
+import com.afoxplus.domain.entities.OptionMessage
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
@@ -24,6 +25,7 @@ class ChatBotActivity : BaseActivity() {
     override fun setUpView() {
         bindingChatBot.toolbar.textTitle.text = getString(R.string.home_chat_description)
         bindingChatBot.toolbar.btnBack.setOnClickListener { onBackPressed() }
+        adapter.setOnClickMessageListener(::onClickMessage)
     }
 
     override fun viewModelObserver() {
@@ -31,6 +33,10 @@ class ChatBotActivity : BaseActivity() {
             adapter.submitList(it)
             bindingChatBot.recycler.scrollToPosition(it.size - 1)
         }
+    }
+
+    private fun onClickMessage(option: OptionMessage) {
+        viewModel.sendOption(option)
     }
 
     companion object {

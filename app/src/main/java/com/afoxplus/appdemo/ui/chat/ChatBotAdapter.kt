@@ -9,21 +9,34 @@ import com.afoxplus.appdemo.databinding.RowChatInputBinding
 import com.afoxplus.appdemo.util.extensions.gone
 import com.afoxplus.appdemo.util.extensions.visible
 import com.afoxplus.domain.entities.Message
+import com.afoxplus.domain.entities.OptionMessage
 import com.afoxplus.domain.entities.TypeMessage
 
 class ChatBotAdapter : ListAdapter<Message, ChatBotAdapter.ViewHolder>(ChatBotDiffCallback()) {
+
+    private var onClickMessageListener: OnClickMessageListener = OnClickMessageListener {}
+
+    fun setOnClickMessageListener(listener: OnClickMessageListener) {
+        onClickMessageListener = listener
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder =
-        ViewHolder.from(parent)
+        ViewHolder.from(parent, onClickMessageListener)
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) =
         holder.bind(getItem(position))
 
     class ViewHolder private constructor(
-        private val binding: RowChatInputBinding
+        private val binding: RowChatInputBinding,
+        private val onClickMessage: OnClickMessageListener
     ) : RecyclerView.ViewHolder(binding.root) {
-
+        private val adapterOptions: ChatBotOptionAdapter by lazy { ChatBotOptionAdapter() }
         fun bind(item: Message) {
             binding.message = item
+            binding.adapterOption = adapterOptions
+            adapterOptions.setOnClickOptionListener { option ->
+                onClickMessage.onClick(option)
+            }
             when (item.type) {
                 TypeMessage.RESPONSE -> {
                     binding.responseMessage.visible()
@@ -42,14 +55,15 @@ class ChatBotAdapter : ListAdapter<Message, ChatBotAdapter.ViewHolder>(ChatBotDi
                     binding.loadingMessage.gone()
                 }
             }
+            adapterOptions.submitList(item.options)
             binding.executePendingBindings()
         }
 
         companion object {
-            fun from(parent: ViewGroup): ViewHolder {
+            fun from(parent: ViewGroup, onClickMessage: OnClickMessageListener): ViewHolder {
                 val layoutInflater = LayoutInflater.from(parent.context)
                 val binding = RowChatInputBinding.inflate(layoutInflater, parent, false)
-                return ViewHolder(binding)
+                return ViewHolder(binding, onClickMessage)
             }
         }
     }
@@ -61,5 +75,8 @@ class ChatBotDiffCallback : DiffUtil.ItemCallback<Message>() {
 
     override fun areContentsTheSame(oldItem: Message, newItem: Message): Boolean =
         oldItem == newItem
+}
 
+fun interface OnClickMessageListener {
+    fun onClick(option: OptionMessage)
 }
