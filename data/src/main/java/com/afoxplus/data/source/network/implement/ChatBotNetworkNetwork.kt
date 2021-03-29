@@ -17,7 +17,7 @@ class ChatBotNetworkNetwork : IChatBotNetworkDataSource, BaseNetwork() {
         val response = chatBotService.sendMessage(ChatBotRequest(inputMessage = inputMessage))
         var chatBot: ChatBot? = null
         response.onSuccess { chatBotResponse -> chatBot = chatBotResponse.toChatBotEntity() }
-        response.onFailure { throw it.throwable }
+        response.onFailure { error -> throw error }
         return chatBot ?: throw GenericException()
     }
 }
