@@ -1,6 +1,6 @@
-package com.afoxplus.data.source.local.database
+package com.afoxplus.data.source.local.database.implement
 
-import com.afoxplus.data.source.IMessageDataSource
+import com.afoxplus.data.source.local.IMessageLocalDataSource
 import com.afoxplus.data.source.local.database.dao.MessageDao
 import com.afoxplus.data.source.local.database.model.MessageModel
 import com.afoxplus.domain.entities.Message
@@ -10,7 +10,7 @@ import kotlinx.coroutines.flow.map
 import org.koin.core.inject
 import java.util.*
 
-class MessageDataBase : IMessageDataSource {
+class MessageLocalDataBase : IMessageLocalDataSource {
 
     private val messageDao: MessageDao by inject()
 

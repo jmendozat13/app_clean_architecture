@@ -1,7 +1,7 @@
 package com.afoxplus.data.repository
 
-import com.afoxplus.data.source.IChatBotDataSource
-import com.afoxplus.data.source.IMessageDataSource
+import com.afoxplus.data.source.network.IChatBotNetworkDataSource
+import com.afoxplus.data.source.local.IMessageLocalDataSource
 import com.afoxplus.domain.entities.Message
 import com.afoxplus.domain.entities.TypeMessage
 import com.afoxplus.domain.repository.IChatBotRepository
@@ -11,27 +11,27 @@ import java.util.*
 
 class ChatBotRepository : IChatBotRepository {
 
-    private val chatBotDataSource: IChatBotDataSource by inject()
-    private val messageDataSource: IMessageDataSource by inject()
+    private val chatBotNetworkDataSource: IChatBotNetworkDataSource by inject()
+    private val messageLocalDataSource: IMessageLocalDataSource by inject()
 
     override val allMessages: Flow<List<Message>>
-        get() = messageDataSource.allMessages
+        get() = messageLocalDataSource.allMessages
 
     override suspend fun sendMessage(inputMessage: String) {
         try {
             val startDate: Calendar = Calendar.getInstance()
-            messageDataSource.deleteLoadMessage()
-            messageDataSource.saveMessage(
+            messageLocalDataSource.deleteLoadMessage()
+            messageLocalDataSource.saveMessage(
                 Message(
                     type = TypeMessage.REQUEST,
                     content = inputMessage,
                     dateTime = startDate.time
                 )
             )
-            messageDataSource.saveMessageLoad()
-            val chatBot = chatBotDataSource.sendMessage(inputMessage)
-            messageDataSource.deleteLoadMessage()
-            messageDataSource.saveMessage(
+            messageLocalDataSource.saveMessageLoad()
+            val chatBot = chatBotNetworkDataSource.sendMessage(inputMessage)
+            messageLocalDataSource.deleteLoadMessage()
+            messageLocalDataSource.saveMessage(
                 Message(
                     type = TypeMessage.RESPONSE,
                     content = chatBot.messageResponse,
@@ -39,7 +39,7 @@ class ChatBotRepository : IChatBotRepository {
                 )
             )
         } catch (ex: Throwable) {
-            messageDataSource.deleteLoadMessage()
+            messageLocalDataSource.deleteLoadMessage()
             throw ex
         }
     }
