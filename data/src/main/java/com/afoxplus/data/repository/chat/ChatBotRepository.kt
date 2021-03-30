@@ -1,4 +1,4 @@
-package com.afoxplus.data.repository
+package com.afoxplus.data.repository.chat
 
 import com.afoxplus.data.source.network.IChatBotNetworkDataSource
 import com.afoxplus.data.source.local.IMessageLocalDataSource
