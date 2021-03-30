@@ -3,7 +3,7 @@ package com.afoxplus.domain.entities.music
 import java.util.*
 
 data class Track(
-    val id: Long,
+    val id: Int,
     val name: String,
     val wrapperType: String,
     val kind: String,
@@ -18,6 +18,6 @@ data class Track(
     val number: Int,
     val timeMillis: Int,
     val primaryGenreName: String,
-    val artist: Artist? = null,
-    val collection: Collection? = null
+    val artist: Artist,
+    val collection: Collection
 )
