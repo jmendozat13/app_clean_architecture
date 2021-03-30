@@ -1,6 +1,5 @@
 package com.afoxplus.data.source.network.implement
 
-import com.afoxplus.data.source.network.BaseNetwork
 import com.afoxplus.data.source.network.IChatBotNetworkDataSource
 import com.afoxplus.data.source.network.models.request.ChatBotRequest
 import com.afoxplus.data.source.network.services.IChatBotService
