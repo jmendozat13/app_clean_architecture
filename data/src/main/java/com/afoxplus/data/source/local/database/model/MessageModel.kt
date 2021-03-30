@@ -2,9 +2,9 @@ package com.afoxplus.data.source.local.database.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.afoxplus.domain.entities.Message
-import com.afoxplus.domain.entities.OptionMessage
-import com.afoxplus.domain.entities.TypeMessage
+import com.afoxplus.domain.entities.chat.Message
+import com.afoxplus.domain.entities.chat.OptionMessage
+import com.afoxplus.domain.entities.chat.TypeMessage
 import java.util.*
 
 @Entity

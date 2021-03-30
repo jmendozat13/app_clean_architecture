@@ -7,7 +7,7 @@
 
         <variable
             name="optionMessage"
-            type="com.afoxplus.domain.entities.OptionMessage" />
+            type="com.afoxplus.domain.entities.chat.OptionMessage" />
 
         <variable
             name="onClickOption"

@@ -1,10 +1,10 @@
-package com.afoxplus.data.source.local.database.implement
+package com.afoxplus.data.source.local.database.implement.chat
 
 import com.afoxplus.data.source.local.IMessageLocalDataSource
 import com.afoxplus.data.source.local.database.dao.MessageDao
 import com.afoxplus.data.source.local.database.model.MessageModel
-import com.afoxplus.domain.entities.Message
-import com.afoxplus.domain.entities.TypeMessage
+import com.afoxplus.domain.entities.chat.Message
+import com.afoxplus.domain.entities.chat.TypeMessage
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import org.koin.core.inject

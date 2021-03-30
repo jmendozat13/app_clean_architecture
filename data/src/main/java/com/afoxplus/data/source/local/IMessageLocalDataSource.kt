@@ -1,7 +1,7 @@
 package com.afoxplus.data.source.local
 
 import com.afoxplus.data.source.BaseDataSource
-import com.afoxplus.domain.entities.Message
+import com.afoxplus.domain.entities.chat.Message
 import kotlinx.coroutines.flow.Flow
 
 interface IMessageLocalDataSource : BaseDataSource {

@@ -6,9 +6,9 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import com.afoxplus.appdemo.ui.BaseViewModel
-import com.afoxplus.domain.entities.Message
-import com.afoxplus.domain.entities.OptionMessage
-import com.afoxplus.domain.usecases.ChatBotUseCase
+import com.afoxplus.domain.entities.chat.Message
+import com.afoxplus.domain.entities.chat.OptionMessage
+import com.afoxplus.domain.usecases.chat.ChatBotUseCase
 import kotlinx.coroutines.launch
 import org.koin.core.inject
 

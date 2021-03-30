@@ -5,7 +5,7 @@ import android.content.Intent
 import com.afoxplus.appdemo.R
 import com.afoxplus.appdemo.databinding.ActivityChatbotBinding
 import com.afoxplus.appdemo.ui.BaseActivity
-import com.afoxplus.domain.entities.OptionMessage
+import com.afoxplus.domain.entities.chat.OptionMessage
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 

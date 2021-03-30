@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.afoxplus.appdemo.databinding.RowChatOptionBinding
-import com.afoxplus.domain.entities.OptionMessage
+import com.afoxplus.domain.entities.chat.OptionMessage
 
 class ChatBotOptionAdapter :
     ListAdapter<OptionMessage, ChatBotOptionAdapter.ViewHolder>(ChatBotOptionDiffCallback()) {

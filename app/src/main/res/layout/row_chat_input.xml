@@ -7,7 +7,7 @@
 
         <variable
             name="message"
-            type="com.afoxplus.domain.entities.Message" />
+            type="com.afoxplus.domain.entities.chat.Message" />
 
         <variable
             name="adapterOption"

@@ -1,6 +1,6 @@
 package com.afoxplus.data.source.network.models.response
 
-import com.afoxplus.domain.entities.ChatBot
+import com.afoxplus.domain.entities.chat.ChatBot
 import com.google.gson.annotations.SerializedName
 
 data class ChatBotResponse(

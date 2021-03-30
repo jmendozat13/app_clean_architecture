@@ -1,7 +1,8 @@
-package com.afoxplus.domain.usecases
+package com.afoxplus.domain.usecases.chat
 
-import com.afoxplus.domain.entities.Message
-import com.afoxplus.domain.repository.IChatBotRepository
+import com.afoxplus.domain.entities.chat.Message
+import com.afoxplus.domain.repository.chat.IChatBotRepository
+import com.afoxplus.domain.usecases.BaseUseCase
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow

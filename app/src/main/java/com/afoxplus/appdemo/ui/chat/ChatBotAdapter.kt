@@ -8,9 +8,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.afoxplus.appdemo.databinding.RowChatInputBinding
 import com.afoxplus.appdemo.util.extensions.gone
 import com.afoxplus.appdemo.util.extensions.visible
-import com.afoxplus.domain.entities.Message
-import com.afoxplus.domain.entities.OptionMessage
-import com.afoxplus.domain.entities.TypeMessage
+import com.afoxplus.domain.entities.chat.Message
+import com.afoxplus.domain.entities.chat.OptionMessage
+import com.afoxplus.domain.entities.chat.TypeMessage
 
 class ChatBotAdapter : ListAdapter<Message, ChatBotAdapter.ViewHolder>(ChatBotDiffCallback()) {
 

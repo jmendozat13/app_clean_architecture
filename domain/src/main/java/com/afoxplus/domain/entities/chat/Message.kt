@@ -1,4 +1,4 @@
-package com.afoxplus.domain.entities
+package com.afoxplus.domain.entities.chat
 
 import java.util.*
 

@@ -2,9 +2,9 @@ package com.afoxplus.data.repository
 
 import com.afoxplus.data.source.network.IChatBotNetworkDataSource
 import com.afoxplus.data.source.local.IMessageLocalDataSource
-import com.afoxplus.domain.entities.Message
-import com.afoxplus.domain.entities.TypeMessage
-import com.afoxplus.domain.repository.IChatBotRepository
+import com.afoxplus.domain.entities.chat.Message
+import com.afoxplus.domain.entities.chat.TypeMessage
+import com.afoxplus.domain.repository.chat.IChatBotRepository
 import kotlinx.coroutines.flow.Flow
 import org.koin.core.inject
 import java.util.*
