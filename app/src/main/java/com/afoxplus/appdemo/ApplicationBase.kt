@@ -2,12 +2,8 @@ package com.afoxplus.appdemo
 
 import android.app.Application
 import com.afoxplus.appdemo.di.viewModelModule
-import com.afoxplus.data.di.repositoryModule
-import com.afoxplus.data.source.di.dataSourceModule
-import com.afoxplus.data.source.local.database.di.dataBaseModule
-import com.afoxplus.data.source.network.di.BASE_URL
-import com.afoxplus.data.source.network.di.networkModule
-import com.afoxplus.data.source.network.di.retrofitModule
+import com.afoxplus.data.di.loadRepositoryModule
+import com.afoxplus.data.source.network.core.di.BASE_URL
 import com.afoxplus.domain.di.useCaseModule
 import org.koin.android.ext.android.getKoin
 import org.koin.android.ext.koin.androidContext
@@ -21,18 +17,13 @@ class ApplicationBase : Application() {
         startKoin {
             androidLogger(Level.NONE)
             androidContext(this@ApplicationBase)
+            loadRepositoryModule
             modules(
                 listOf(
-                    retrofitModule,
-                    dataBaseModule,
-                    networkModule,
-                    dataSourceModule,
-                    repositoryModule,
                     useCaseModule,
                     viewModelModule
                 )
             )
-
         }
 
         getKoin().run {

@@ -18,6 +18,6 @@ data class Track(
     val number: Int,
     val timeMillis: Int,
     val primaryGenreName: String,
-    val artist: Artist,
-    val collection: Collection
+    val artist: Artist? = null,
+    val collection: Collection? = null
 )

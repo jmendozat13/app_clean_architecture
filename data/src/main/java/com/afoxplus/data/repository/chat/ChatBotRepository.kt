@@ -1,7 +1,7 @@
 package com.afoxplus.data.repository.chat
 
-import com.afoxplus.data.source.network.IChatBotNetworkDataSource
-import com.afoxplus.data.source.local.IMessageLocalDataSource
+import com.afoxplus.data.source.network.chat.IChatBotNetworkDataSource
+import com.afoxplus.data.source.local.database.chat.IMessageLocalDataSource
 import com.afoxplus.domain.entities.chat.Message
 import com.afoxplus.domain.entities.chat.TypeMessage
 import com.afoxplus.domain.repository.chat.IChatBotRepository
