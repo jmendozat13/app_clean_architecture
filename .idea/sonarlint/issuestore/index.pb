@@ -1,8 +1,4 @@
 
-A
-gradle.properties,2\a\2afbb999f001938c88fa43fc2ef52abf0f8213e4
-?
-settings.gradle,0\5\05efc8b1657769a27696d478ded1e95f38737233
 :
 
 .gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
@@ -14,8 +10,6 @@ i
 9app/src/main/java/com/afoxplus/appdemo/ui/BaseActivity.kt,0\3\03407fff2ca5170250f87e255a1b70721c8e4e99
 r
 Bapp/src/main/java/com/afoxplus/appdemo/ui/splash/SplashActivity.kt,b\4\b41da1ef0919d8c6d50c86657cf72ef9250df18a
-q
-Aapp/src/main/java/com/afoxplus/appdemo/ui/chat/ChatBotActivity.kt,a\6\a64cd076a33f7780270132678931f83ab1f91c09
 Å
 Qdata/src/main/java/com/afoxplus/data/source/local/database/config/TypeConverts.kt,c\1\c1b56b7508efbe1dc0a4158029dfda86840af198
 j
@@ -24,34 +18,14 @@ d
 4app/src/main/java/com/afoxplus/appdemo/util/Event.kt,0\4\04d4955f42a13808337a11cd1711fc16beaf2c60
 w
 Gapp/src/main/java/com/afoxplus/appdemo/util/extensions/ViewExtension.kt,d\c\dc2041eaaa5d8e75673bbf528ce75b379d49571a
-p
-@app/src/main/java/com/afoxplus/appdemo/ui/chat/ChatBotAdapter.kt,5\c\5c2af638cfd42c4459f580bf64071614a2aa90fe
-r
-Bapp/src/main/java/com/afoxplus/appdemo/ui/chat/ChatBotViewModel.kt,1\5\152ec0a8c5817195f302bd6ecd4e85103772b8d4
 Ñ
 Tdata/src/main/java/com/afoxplus/data/source/network/di/providers/RetrofitProvider.kt,f\e\fe62e44712159b8db64178d12b6aa05cdbb4d3c1
 Ç
 Rdata/src/main/java/com/afoxplus/data/source/network/di/providers/ApiInterceptor.kt,d\f\dfa50276a1d3a5e20eec01ce29203e936438cfef
 x
 Hdata/src/main/java/com/afoxplus/data/source/network/di/RetrofitModule.kt,8\4\84b213e1c5187f5ac044034c3a3ffb419343183b
-u
-Edomain/src/main/java/com/afoxplus/domain/repository/BaseRepository.kt,6\e\6ec817ac426dbe503725c6756e99c4f4a921c9f4
 p
 @domain/src/main/java/com/afoxplus/domain/usecases/BaseUseCase.kt,4\b\4b38fae1401b65861fe7073055b882e34b4e1233
-w
-Gdomain/src/main/java/com/afoxplus/domain/exceptions/GenericException.kt,c\4\c415af8dd505a73ae693d09661b24600b785f8c2
-z
-Jdomain/src/main/java/com/afoxplus/domain/exceptions/ApiNetworkException.kt,5\e\5e8cf2e50022869d664ed50664c28a6a40e3600f
-u
-Edomain/src/main/java/com/afoxplus/domain/entities/chat/TypeMessage.kt,e\e\ee56d17b639811c6e6911dd295b169f5e06be102
-q
-Adomain/src/main/java/com/afoxplus/domain/entities/chat/Message.kt,5\4\54a6cc338f8a312416f136fb663629eb44179c13
-q
-Adomain/src/main/java/com/afoxplus/domain/entities/chat/ChatBot.kt,5\9\59e7c2aa32a2149cdd3946caec33295d5fcf859e
-~
-Ndomain/src/main/java/com/afoxplus/domain/repository/chat/IChatBotRepository.kt,9\9\997cbdf0bc4b30c1fb33c6400229161714b02ce9
-x
-Hdomain/src/main/java/com/afoxplus/domain/usecases/chat/ChatBotUseCase.kt,6\5\65f4420d68425f8eaff1b778cd0b142f09fe4a3f
 ë
 adata/src/main/java/com/afoxplus/data/source/local/database/implement/chat/MessageLocalDataBase.kt,7\5\7540f4d8f73a05fd9f6825e745128020cc73b8f7
 q

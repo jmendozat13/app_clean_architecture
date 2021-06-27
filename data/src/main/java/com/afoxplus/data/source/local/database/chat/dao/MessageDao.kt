@@ -1,20 +1,25 @@
 package com.afoxplus.data.source.local.database.chat.dao
 
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
 import com.afoxplus.data.source.local.database.chat.model.MessageModel
+import com.afoxplus.data.source.local.database.chat.model.MessageWithOptionsModel
 import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface MessageDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insert(vararg messageModel: MessageModel)
+    suspend fun insert(vararg messages: MessageModel)
 
-    @Query("SELECT *FROM MessageModel ORDER BY dateTime ASC")
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertOneMessage(message: MessageModel): Long
+
+    @Query("SELECT *FROM messages ORDER BY dateTime ASC")
     fun historyMessages(): Flow<List<MessageModel>>
 
-    @Query("DELETE FROM MessageModel WHERE type=:type")
+    @Query("DELETE FROM messages WHERE type=:type")
     fun deleteMessage(type: String)
+
+    @Transaction
+    @Query("SELECT *FROM messages ORDER BY dateTime ASC")
+    fun readMessage(): Flow<List<MessageWithOptionsModel>>
 }

@@ -29,7 +29,7 @@ class ChatBotViewModel : BaseViewModel() {
 
     fun sendOption(option: OptionMessage) = viewModelScope.launch {
         try {
-            chatBotUseCase.sendMessage(option.name)
+            chatBotUseCase.sendMessage(option.query)
         } catch (ex: Throwable) {
             Log.d("Error", "${ex.message}")
         }

@@ -1,7 +1,8 @@
 package com.afoxplus.data.di
 
 import com.afoxplus.data.repository.chat.ChatBotRepository
-import com.afoxplus.data.source.di.dataSourceModule
+import com.afoxplus.data.source.di.localDataSourceModule
+import com.afoxplus.data.source.di.networkDataSourceModule
 import com.afoxplus.data.source.local.database.core.di.dataBaseModule
 import com.afoxplus.data.source.network.core.di.networkModule
 import com.afoxplus.data.source.network.core.di.retrofitModule
@@ -17,7 +18,8 @@ val loadRepositoryModule = loadKoinModules(
     listOf(
         retrofitModule,
         networkModule,
-        dataSourceModule,
+        localDataSourceModule,
+        networkDataSourceModule,
         dataBaseModule,
         repositoryModule
     )

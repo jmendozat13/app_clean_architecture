@@ -3,29 +3,23 @@ package com.afoxplus.data.source.local.database.chat.model
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.afoxplus.domain.entities.chat.Message
-import com.afoxplus.domain.entities.chat.OptionMessage
 import com.afoxplus.domain.entities.chat.TypeMessage
 import java.util.*
 
-@Entity
+@Entity(tableName = "messages")
 data class MessageModel(
     val type: String,
     val content: String,
     val dateTime: Date,
     @PrimaryKey(autoGenerate = true)
-    val id: Int = 0,
+    val id: Long = 0,
 ) {
 
     fun toMessage(): Message = Message(
         id = id,
         type = TypeMessage.valueOf(type),
         content = content,
-        dateTime = dateTime,
-        options = listOf(
-            OptionMessage(name = "Admision", id = 1),
-            OptionMessage(name = "Matriculas", id = 2),
-            OptionMessage(name = "Como inicio una huelga?", id = 3)
-        )
+        dateTime = dateTime
     )
 
     companion object {
@@ -35,7 +29,8 @@ data class MessageModel(
             dateTime = message.dateTime
         )
 
-        fun toMessageList(messages: List<MessageModel>) = messages.map { item -> item.toMessage() }
+        fun toMessageList(messages: List<MessageWithOptionsModel>) =
+            messages.map { item -> item.mapMessage() }
     }
 }
 

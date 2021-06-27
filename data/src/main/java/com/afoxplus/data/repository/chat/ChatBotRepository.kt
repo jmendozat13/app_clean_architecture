@@ -20,7 +20,7 @@ class ChatBotRepository : IChatBotRepository {
     override suspend fun sendMessage(inputMessage: String) {
         try {
             val startDate: Calendar = Calendar.getInstance()
-            messageLocalDataSource.deleteLoadMessage()
+            messageLocalDataSource.deleteLoadingMessage()
             messageLocalDataSource.saveMessage(
                 Message(
                     type = TypeMessage.REQUEST,
@@ -28,18 +28,13 @@ class ChatBotRepository : IChatBotRepository {
                     dateTime = startDate.time
                 )
             )
-            messageLocalDataSource.saveMessageLoad()
-            val chatBot = chatBotNetworkDataSource.sendMessage(inputMessage)
-            messageLocalDataSource.deleteLoadMessage()
-            messageLocalDataSource.saveMessage(
-                Message(
-                    type = TypeMessage.RESPONSE,
-                    content = chatBot.messageResponse,
-                    dateTime = startDate.time
-                )
-            )
+            messageLocalDataSource.showLoadingMessage()
+            val messageResponse = chatBotNetworkDataSource.sendMessage(inputMessage)
+            val messageId = messageLocalDataSource.saveMessage(messageResponse)
+            messageLocalDataSource.saveMessageOptions(messageId, messageResponse.options)
+            messageLocalDataSource.deleteLoadingMessage()
         } catch (ex: Throwable) {
-            messageLocalDataSource.deleteLoadMessage()
+            messageLocalDataSource.deleteLoadingMessage()
             throw ex
         }
     }

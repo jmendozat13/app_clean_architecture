@@ -9,11 +9,7 @@ class ApiInterceptor : Interceptor {
     override fun intercept(chain: Interceptor.Chain): Response {
         var request = chain.request()
         request = request.newBuilder()
-            .addHeader(DEVICE_MODEL, "Android")
-            //"${android.os.Build.MANUFACTURER} ${android.os.Build.MODEL}")
-            .addHeader("username", "jmendozat13")
-            .addHeader("ip", "localhost")
-            .addHeader("aditionalInfo", "mobile")
+            .addHeader(DEVICE_MODEL, "${android.os.Build.MANUFACTURER} ${android.os.Build.MODEL}")
             .build()
         return chain.proceed(request)
     }
