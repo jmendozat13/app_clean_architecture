@@ -5,7 +5,6 @@ import com.afoxplus.data.source.network.chat.request.MessageRequest
 import com.afoxplus.data.source.network.chat.service.IChatBotService
 import com.afoxplus.data.source.network.core.extension.onFailure
 import com.afoxplus.data.source.network.core.extension.onSuccess
-import com.afoxplus.domain.entities.chat.ChatBot
 import com.afoxplus.domain.entities.chat.Message
 import com.afoxplus.domain.exceptions.GenericException
 import org.koin.core.inject
