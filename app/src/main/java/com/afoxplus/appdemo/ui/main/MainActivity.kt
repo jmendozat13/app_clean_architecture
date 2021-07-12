@@ -9,7 +9,7 @@ import com.afoxplus.appdemo.ui.chat.ChatBotActivity
 class MainActivity : BaseActivity() {
     private lateinit var bindingMainActivity: ActivityMainBinding
 
-    override fun onCreate() {
+    override fun setMainView() {
         bindingMainActivity = ActivityMainBinding.inflate(layoutInflater)
         setContentView(bindingMainActivity.root)
         setUpView()

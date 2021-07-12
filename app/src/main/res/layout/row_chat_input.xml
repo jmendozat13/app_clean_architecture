@@ -11,7 +11,7 @@
 
         <variable
             name="adapterOption"
-            type="com.afoxplus.appdemo.ui.chat.ChatBotOptionAdapter" />
+            type="com.afoxplus.appdemo.ui.chat.adapter.ChatBotOptionAdapter" />
 
     </data>
 
@@ -46,7 +46,7 @@
                     android:layout_height="match_parent"
                     android:layout_margin="12dp"
                     android:text="@{message.content}"
-                    android:textColor="@color/black"
+                    android:textColor="@color/primary_dark"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -83,7 +83,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="12dp"
                 android:text="@{message.content}"
-                android:textColor="@color/black"
+                android:textColor="@color/primary_dark"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -105,7 +105,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="12dp"
                 android:text="@string/chat_loading"
-                android:textColor="@color/black"
+                android:textColor="@color/primary_dark"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

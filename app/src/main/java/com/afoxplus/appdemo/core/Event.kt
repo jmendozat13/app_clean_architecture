@@ -1,4 +1,4 @@
-package com.afoxplus.appdemo.util
+package com.afoxplus.appdemo.core
 
 import androidx.lifecycle.Observer
 

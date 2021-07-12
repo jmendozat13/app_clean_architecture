@@ -20,9 +20,9 @@
             android:layout_gravity="bottom|end"
             android:layout_margin="24dp"
             android:contentDescription="@string/home_chat_description"
-            app:backgroundTint="@color/teal_700"
+            app:backgroundTint="@color/secondary_blue"
             app:srcCompat="@drawable/ic_baseline_chat"
-            app:tint="@color/white" />
+            app:tint="@color/primary_white" />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 

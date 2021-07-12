@@ -11,7 +11,7 @@
 
         <variable
             name="onClickOption"
-            type="com.afoxplus.appdemo.ui.chat.OnClickOptionListener" />
+            type="com.afoxplus.appdemo.ui.chat.adapter.OnClickOptionListener" />
     </data>
 
     <com.google.android.material.card.MaterialCardView
@@ -35,7 +35,7 @@
                 android:layout_height="match_parent"
                 android:layout_margin="6dp"
                 android:text="@{optionMessage.title}"
-                android:textColor="@color/black"
+                android:textColor="@color/primary_dark"
                 android:textSize="10sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"

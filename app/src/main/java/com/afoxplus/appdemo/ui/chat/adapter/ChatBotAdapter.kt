@@ -1,4 +1,4 @@
-package com.afoxplus.appdemo.ui.chat
+package com.afoxplus.appdemo.ui.chat.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -6,8 +6,8 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.afoxplus.appdemo.databinding.RowChatInputBinding
-import com.afoxplus.appdemo.util.extensions.gone
-import com.afoxplus.appdemo.util.extensions.visible
+import com.afoxplus.appdemo.core.extensions.gone
+import com.afoxplus.appdemo.core.extensions.visible
 import com.afoxplus.domain.entities.chat.Message
 import com.afoxplus.domain.entities.chat.OptionMessage
 import com.afoxplus.domain.entities.chat.TypeMessage

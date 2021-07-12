@@ -1,4 +1,4 @@
-package com.afoxplus.appdemo.ui.chat
+package com.afoxplus.appdemo.ui.chat.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

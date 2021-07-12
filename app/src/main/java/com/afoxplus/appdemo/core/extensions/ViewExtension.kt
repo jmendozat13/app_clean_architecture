@@ -1,4 +1,4 @@
-package com.afoxplus.appdemo.util.extensions
+package com.afoxplus.appdemo.core.extensions
 
 import android.view.View
 

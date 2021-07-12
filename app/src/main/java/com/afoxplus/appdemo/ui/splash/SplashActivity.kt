@@ -12,7 +12,7 @@ import kotlinx.coroutines.launch
 class SplashActivity : BaseActivity() {
 
     private lateinit var bindingSplashActivity: ActivitySplashBinding
-    override fun onCreate() {
+    override fun setMainView() {
         bindingSplashActivity = ActivitySplashBinding.inflate(layoutInflater)
         setContentView(bindingSplashActivity.root)
 
