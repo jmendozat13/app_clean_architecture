@@ -20,4 +20,7 @@ class ViewPagerAdapter(
     fun getFragment(position: Int): BaseFragment = listFragments[position]
 
     fun deleteFragment(position: Int) = listFragments.drop(position)
+    fun deletePrevious() {
+        listFragments.drop(listFragments.size - 1)
+    }
 }

@@ -5,6 +5,7 @@ import android.content.Intent
 import androidx.viewpager2.widget.ViewPager2
 import com.afoxplus.appdemo.core.EventObserver
 import com.afoxplus.appdemo.core.adapters.ViewPagerAdapter
+import com.afoxplus.appdemo.core.extensions.next
 import com.afoxplus.appdemo.databinding.ActivityChatbotBinding
 import com.afoxplus.appdemo.ui.BaseActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -31,14 +32,15 @@ class ChatBotActivity : BaseActivity() {
         )
         bindingChatBot.viewPager.run {
             adapter = viewPagerAdapter
+            isUserInputEnabled = false
             orientation = ViewPager2.ORIENTATION_HORIZONTAL
         }
     }
 
     override fun viewModelObserver() {
         viewModel.eventOnContinue.observe(this, EventObserver {
-            bindingChatBot.viewPager.currentItem += 1
-            viewPagerAdapter.deleteFragment(0)
+            bindingChatBot.viewPager.next()
+            viewPagerAdapter.deletePrevious()
         })
     }
 

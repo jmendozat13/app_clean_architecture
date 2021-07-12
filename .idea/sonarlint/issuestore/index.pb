@@ -96,8 +96,6 @@ i
 9app/src/main/java/com/afoxplus/appdemo/ui/BaseFragment.kt,0\5\0530cffaa4d45eec1126c5168b52182ed08ced4d
 i
 9app/src/main/java/com/afoxplus/appdemo/ui/BaseActivity.kt,0\3\03407fff2ca5170250f87e255a1b70721c8e4e99
-w
-Gapp/src/main/java/com/afoxplus/appdemo/core/extensions/ViewExtension.kt,4\7\475e2a58db545192df14c3d24696ce892d09b3db
 }
 Mdata/src/main/java/com/afoxplus/data/source/local/core/LocalBaseDataSource.kt,8\b\8b8d45b63f25d6bb9f9d709974074dadcb102472
 S
