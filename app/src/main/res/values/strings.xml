@@ -6,4 +6,5 @@
     <string name="fragment_chat_title">Bienvenido, Ingresa tu nombre para continuar</string>
     <string name="fragment_user_chat_hint">Username</string>
     <string name="fragment_user_chat_continue">Continuar</string>
+    <string name="fragment_user_chat_validate">Username is required</string>
 </resources>

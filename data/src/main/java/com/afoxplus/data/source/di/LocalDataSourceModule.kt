@@ -1,5 +1,7 @@
 package com.afoxplus.data.source.di
 
+import com.afoxplus.data.source.local.database.account.IUserLocalDataSource
+import com.afoxplus.data.source.local.database.account.UserLocalDataSource
 import com.afoxplus.data.source.local.database.chat.IMessageLocalDataSource
 import com.afoxplus.data.source.local.database.chat.MessageLocalDataBase
 import com.afoxplus.data.source.local.database.music.ITrackLocalDataSource
@@ -9,4 +11,5 @@ import org.koin.dsl.module
 val localDataSourceModule = module {
     factory<IMessageLocalDataSource> { MessageLocalDataBase() }
     factory<ITrackLocalDataSource> { TrackLocalDataSource() }
+    factory<IUserLocalDataSource> { UserLocalDataSource() }
 }

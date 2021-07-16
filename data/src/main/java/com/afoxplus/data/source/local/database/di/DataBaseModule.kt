@@ -1,4 +1,4 @@
-package com.afoxplus.data.source.local.database.core.di
+package com.afoxplus.data.source.local.database.di
 
 import com.afoxplus.data.source.local.database.core.AppDemoDataBase
 import org.koin.android.ext.koin.androidContext
@@ -9,4 +9,5 @@ val dataBaseModule = module {
     factory { get<AppDemoDataBase>().messageDao }
     factory { get<AppDemoDataBase>().trackDao }
     factory { get<AppDemoDataBase>().optionMessageDao }
+    factory { get<AppDemoDataBase>().userDao }
 }
