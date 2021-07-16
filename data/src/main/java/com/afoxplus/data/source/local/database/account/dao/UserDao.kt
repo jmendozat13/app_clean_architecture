@@ -12,5 +12,5 @@ interface UserDao {
     suspend fun insertUser(user: UserModel)
 
     @Query("SELECT *FROM user LIMIT 1")
-    fun getUser(): UserModel
+    fun getUser(): UserModel?
 }

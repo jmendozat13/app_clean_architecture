@@ -8,11 +8,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.afoxplus.appdemo.databinding.RowChatInputBinding
 import com.afoxplus.appdemo.core.extensions.gone
 import com.afoxplus.appdemo.core.extensions.visible
+import com.afoxplus.domain.entities.account.User
 import com.afoxplus.domain.entities.chat.Message
 import com.afoxplus.domain.entities.chat.OptionMessage
 import com.afoxplus.domain.entities.chat.TypeMessage
 
-class ChatBotAdapter : ListAdapter<Message, ChatBotAdapter.ViewHolder>(ChatBotDiffCallback()) {
+class ChatBotAdapter(val user: User) : ListAdapter<Message, ChatBotAdapter.ViewHolder>(ChatBotDiffCallback()) {
 
     private var onClickMessageListener: OnClickMessageListener = OnClickMessageListener {}
 
@@ -21,17 +22,19 @@ class ChatBotAdapter : ListAdapter<Message, ChatBotAdapter.ViewHolder>(ChatBotDi
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder =
-        ViewHolder.from(parent, onClickMessageListener)
+        ViewHolder.from(parent, onClickMessageListener, user)
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) =
         holder.bind(getItem(position))
 
     class ViewHolder private constructor(
         private val binding: RowChatInputBinding,
-        private val onClickMessage: OnClickMessageListener
+        private val onClickMessage: OnClickMessageListener,
+        private val user: User
     ) : RecyclerView.ViewHolder(binding.root) {
         private val adapterOptions: ChatBotOptionAdapter by lazy { ChatBotOptionAdapter() }
         fun bind(item: Message) {
+            item.replaceUserName(user)
             binding.message = item
             binding.adapterOption = adapterOptions
             adapterOptions.setOnClickOptionListener { option ->
@@ -60,10 +63,10 @@ class ChatBotAdapter : ListAdapter<Message, ChatBotAdapter.ViewHolder>(ChatBotDi
         }
 
         companion object {
-            fun from(parent: ViewGroup, onClickMessage: OnClickMessageListener): ViewHolder {
+            fun from(parent: ViewGroup, onClickMessage: OnClickMessageListener, user: User): ViewHolder {
                 val layoutInflater = LayoutInflater.from(parent.context)
                 val binding = RowChatInputBinding.inflate(layoutInflater, parent, false)
-                return ViewHolder(binding, onClickMessage)
+                return ViewHolder(binding, onClickMessage, user)
             }
         }
     }

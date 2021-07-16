@@ -4,6 +4,7 @@ import android.view.View
 import com.afoxplus.appdemo.databinding.FragmentChatBinding
 import com.afoxplus.appdemo.ui.BaseFragment
 import com.afoxplus.appdemo.ui.chat.adapter.ChatBotAdapter
+import com.afoxplus.domain.entities.account.User
 import com.afoxplus.domain.entities.chat.OptionMessage
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
@@ -12,7 +13,9 @@ class ChatFragment : BaseFragment() {
     private lateinit var bindingChat: FragmentChatBinding
     private val viewModel: ChatBotViewModel by sharedViewModel()
 
-    private val adapter: ChatBotAdapter by lazy { ChatBotAdapter() }
+    private val adapter: ChatBotAdapter by lazy {
+        ChatBotAdapter(user = viewModel.user)
+    }
 
     override fun getMainView(): View {
         bindingChat = FragmentChatBinding.inflate(layoutInflater)

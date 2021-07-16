@@ -11,5 +11,5 @@ data class UserModel(
     @PrimaryKey
     @SerializedName("id") val id: Int = 0,
 ) {
-    fun toUser(): User = User(id, name)
+    fun toUser(): User = User(name, id)
 }
