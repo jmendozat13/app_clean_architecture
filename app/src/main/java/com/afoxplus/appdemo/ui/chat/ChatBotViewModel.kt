@@ -41,6 +41,7 @@ class ChatBotViewModel : BaseViewModel() {
         viewModelScope.launch {
             try {
                 chatBotUseCase.sendMessage(chatInputTextField.value ?: "")
+                chatInputTextField.postValue("")
             } catch (ex: Throwable) {
                 Log.d("Error", "${ex.message}")
             }

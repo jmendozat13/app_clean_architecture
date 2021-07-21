@@ -35,7 +35,7 @@
                 android:id="@+id/messageResponse"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/bubble_left"
+                android:background="@drawable/bubble_left_tail"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">

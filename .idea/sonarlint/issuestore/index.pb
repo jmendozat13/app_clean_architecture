@@ -112,8 +112,6 @@ Sdata/src/main/java/com/afoxplus/data/source/network/chat/service/IChatBotServic
 app/build.gradle,f\4\f4a01d6a4fcb971362ec00a83903fd3902f52164
 x
 Hdomain/src/main/java/com/afoxplus/domain/usecases/chat/ChatBotUseCase.kt,6\5\65f4420d68425f8eaff1b778cd0b142f09fe4a3f
-r
-Bapp/src/main/java/com/afoxplus/appdemo/ui/chat/ChatBotViewModel.kt,1\5\152ec0a8c5817195f302bd6ecd4e85103772b8d4
 ~
 Napp/src/main/java/com/afoxplus/appdemo/ui/chat/adapter/ChatBotOptionAdapter.kt,d\b\db573eba96a964317410af14c1a0b5e1ee964e81
 q

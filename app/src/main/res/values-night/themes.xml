@@ -1,9 +1,9 @@
 <resources>
 
     <style name="APPKit.Theme" parent="Theme.MaterialComponents.Light.NoActionBar">
-        <item name="colorPrimary">@color/primary_red</item>
+        <item name="colorPrimary">@color/primary_dark</item>
         <item name="colorPrimaryDark">@color/primary_dark</item>
-        <item name="colorAccent">@color/secondary_aqua</item>
+        <item name="colorAccent">@color/dark_02</item>
     </style>
 
     <style name="APPKit.NoActionBar.Light" parent="APPKit.Theme">

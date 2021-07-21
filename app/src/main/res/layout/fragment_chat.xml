@@ -34,21 +34,48 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:itemCount="3"
-            tools:listitem="@layout/row_chat_loading" />
+            tools:listitem="@layout/row_chat_request" />
 
-        <androidx.appcompat.widget.AppCompatEditText
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/editTextTextPersonName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
-            android:ems="10"
-            android:inputType="text"
-            android:text="@={viewModel.chatInputTextField}"
+            android:background="@drawable/bubble_input"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/button"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/recycler">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/emoji"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="12dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_emoji" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                android:background="@null"
+                android:inputType="textMultiLine"
+                android:maxLines="5"
+                android:text="@={viewModel.chatInputTextField}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/emoji"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
 
         <ImageButton
             android:id="@+id/button"
@@ -56,13 +83,13 @@
             android:layout_height="50dp"
             android:layout_centerHorizontal="true"
             android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"
             android:background="@drawable/circular_button_with_state_change"
             android:contentDescription="@string/home_chat_description"
             android:onClick="@{() -> viewModel.onClickSendMessage()}"
             android:src="@drawable/ic_baseline_send"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintBottom_toBottomOf="@+id/editTextTextPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/editTextTextPersonName" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
