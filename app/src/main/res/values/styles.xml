@@ -73,6 +73,14 @@
         <item name="android:fontFamily">@font/poppins_semibold</item>
     </style>
 
+    <style name="Paragraph_03" parent="Poppins">
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="Paragraph_04" parent="Poppins">
+        <item name="android:textSize">10sp</item>
+    </style>
+
     <style name="APPKit.PrimaryButton" parent="TextAppearance.MaterialComponents.Button">
         <item name="android:textAllCaps">false</item>
         <item name="android:letterSpacing">0</item>

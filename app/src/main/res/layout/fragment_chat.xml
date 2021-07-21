@@ -34,7 +34,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:itemCount="3"
-            tools:listitem="@layout/row_chat_input" />
+            tools:listitem="@layout/row_chat_loading" />
 
         <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/editTextTextPersonName"

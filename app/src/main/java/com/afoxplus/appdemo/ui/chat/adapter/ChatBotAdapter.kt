@@ -1,19 +1,19 @@
 package com.afoxplus.appdemo.ui.chat.adapter
 
-import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
-import androidx.recyclerview.widget.RecyclerView
-import com.afoxplus.appdemo.databinding.RowChatInputBinding
-import com.afoxplus.appdemo.core.extensions.gone
-import com.afoxplus.appdemo.core.extensions.visible
+import com.afoxplus.appdemo.ui.chat.viewholder.ChatLoadingViewHolder
+import com.afoxplus.appdemo.ui.chat.viewholder.ChatRequestViewHolder
+import com.afoxplus.appdemo.ui.chat.viewholder.ChatResponseViewHolder
+import com.afoxplus.appdemo.ui.chat.viewholder.ChatViewHolder
 import com.afoxplus.domain.entities.account.User
 import com.afoxplus.domain.entities.chat.Message
 import com.afoxplus.domain.entities.chat.OptionMessage
 import com.afoxplus.domain.entities.chat.TypeMessage
 
-class ChatBotAdapter(val user: User) : ListAdapter<Message, ChatBotAdapter.ViewHolder>(ChatBotDiffCallback()) {
+class ChatBotAdapter(val user: User) :
+    ListAdapter<Message, ChatViewHolder>(ChatBotDiffCallback()) {
 
     private var onClickMessageListener: OnClickMessageListener = OnClickMessageListener {}
 
@@ -21,55 +21,25 @@ class ChatBotAdapter(val user: User) : ListAdapter<Message, ChatBotAdapter.ViewH
         onClickMessageListener = listener
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder =
-        ViewHolder.from(parent, onClickMessageListener, user)
+    override fun getItemViewType(position: Int): Int {
+        val message = getItem(position)
+        return message.type.id
+    }
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) =
-        holder.bind(getItem(position))
-
-    class ViewHolder private constructor(
-        private val binding: RowChatInputBinding,
-        private val onClickMessage: OnClickMessageListener,
-        private val user: User
-    ) : RecyclerView.ViewHolder(binding.root) {
-        private val adapterOptions: ChatBotOptionAdapter by lazy { ChatBotOptionAdapter() }
-        fun bind(item: Message) {
-            item.replaceUserName(user)
-            binding.message = item
-            binding.adapterOption = adapterOptions
-            adapterOptions.setOnClickOptionListener { option ->
-                onClickMessage.onClick(option)
-            }
-            when (item.type) {
-                TypeMessage.RESPONSE -> {
-                    binding.responseMessage.visible()
-                    binding.requestMessage.gone()
-                    binding.loadingMessage.gone()
-                }
-                TypeMessage.LOADING -> {
-                    binding.responseMessage.gone()
-                    binding.requestMessage.gone()
-                    binding.loadingMessage.visible()
-                }
-
-                TypeMessage.REQUEST -> {
-                    binding.responseMessage.gone()
-                    binding.requestMessage.visible()
-                    binding.loadingMessage.gone()
-                }
-            }
-            adapterOptions.submitList(item.options)
-            binding.executePendingBindings()
-        }
-
-        companion object {
-            fun from(parent: ViewGroup, onClickMessage: OnClickMessageListener, user: User): ViewHolder {
-                val layoutInflater = LayoutInflater.from(parent.context)
-                val binding = RowChatInputBinding.inflate(layoutInflater, parent, false)
-                return ViewHolder(binding, onClickMessage, user)
-            }
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ChatViewHolder {
+        return when (TypeMessage.valueOf(viewType)) {
+            TypeMessage.RESPONSE -> ChatResponseViewHolder.from(
+                parent,
+                onClickMessageListener,
+                user
+            )
+            TypeMessage.REQUEST -> ChatRequestViewHolder.from(parent)
+            TypeMessage.LOADING -> ChatLoadingViewHolder.from(parent)
         }
     }
+
+    override fun onBindViewHolder(holder: ChatViewHolder, position: Int) =
+        holder.bind(getItem(position))
 }
 
 class ChatBotDiffCallback : DiffUtil.ItemCallback<Message>() {

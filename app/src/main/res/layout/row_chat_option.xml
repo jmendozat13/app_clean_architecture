@@ -31,17 +31,15 @@
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/responseTextMessage"
+                style="@style/Paragraph_04"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="6dp"
                 android:text="@{optionMessage.title}"
-                android:textColor="@color/primary_dark"
-                android:textSize="10sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="SmallSp"
                 tools:text="Admision" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
