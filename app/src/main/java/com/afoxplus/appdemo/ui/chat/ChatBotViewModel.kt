@@ -21,7 +21,9 @@ class ChatBotViewModel : BaseViewModel() {
 
     var user: User = User.getUserDemo()
     val allMessages: LiveData<List<Message>> = chatBotUseCase.allMessages.asLiveData()
+
     val chatInputTextField = MutableLiveData<String>()
+
     val isUserChatFormValid = MediatorLiveData<Boolean>()
     val userNameField = MutableLiveData<String>()
     val userNameValidator = LiveDataValidator(userNameField).apply {
@@ -40,8 +42,9 @@ class ChatBotViewModel : BaseViewModel() {
     fun onClickSendMessage() {
         viewModelScope.launch {
             try {
-                chatBotUseCase.sendMessage(chatInputTextField.value ?: "")
+                val message = chatInputTextField.value ?: ""
                 chatInputTextField.postValue("")
+                chatBotUseCase.sendMessage(message)
             } catch (ex: Throwable) {
                 Log.d("Error", "${ex.message}")
             }

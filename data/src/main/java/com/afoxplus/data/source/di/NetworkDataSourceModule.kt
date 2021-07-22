@@ -6,5 +6,5 @@ import org.koin.dsl.module
 
 
 val networkDataSourceModule = module {
-    factory<IChatBotNetworkDataSource> { ChatBotNetworkDataSource() }
+    single<IChatBotNetworkDataSource> { ChatBotNetworkDataSource() }
 }

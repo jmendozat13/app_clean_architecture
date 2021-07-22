@@ -9,7 +9,7 @@ import com.afoxplus.data.source.local.database.music.TrackLocalDataSource
 import org.koin.dsl.module
 
 val localDataSourceModule = module {
-    factory<IMessageLocalDataSource> { MessageLocalDataBase() }
-    factory<ITrackLocalDataSource> { TrackLocalDataSource() }
-    factory<IUserLocalDataSource> { UserLocalDataSource() }
+    single<IMessageLocalDataSource> { MessageLocalDataBase() }
+    single<ITrackLocalDataSource> { TrackLocalDataSource() }
+    single<IUserLocalDataSource> { UserLocalDataSource() }
 }

@@ -13,8 +13,8 @@ import org.koin.core.context.loadKoinModules
 import org.koin.dsl.module
 
 private val repositoryModule = module {
-    factory<IChatBotRepository> { ChatBotRepository() }
-    factory<IUserRepository> { UserRepository() }
+    single<IChatBotRepository> { ChatBotRepository() }
+    single<IUserRepository> { UserRepository() }
 }
 
 val loadRepositoryModule = loadKoinModules(

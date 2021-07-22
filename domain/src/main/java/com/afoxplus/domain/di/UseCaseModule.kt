@@ -5,6 +5,6 @@ import com.afoxplus.domain.usecases.chat.ChatBotUseCase
 import org.koin.dsl.module
 
 val useCaseModule = module {
-    factory { ChatBotUseCase() }
-    factory { UserUseCase() }
+    single { ChatBotUseCase() }
+    single { UserUseCase() }
 }
