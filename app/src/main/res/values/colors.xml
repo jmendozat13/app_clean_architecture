@@ -1,17 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <color name="primary_red">#FF164E</color>
     <color name="primary_dark">#141938</color>
     <color name="primary_white">#FAFBFF</color>
 
-    <color name="secondary_white">#FFFFFF</color>
     <color name="secondary_blue">#4F4FFF</color>
-    <color name="secondary_aqua">#17E2D5</color>
-    <color name="secondary_yellow">#FFAD33</color>
 
     <color name="light_04">#FAFBFF</color>
-    <color name="yellow_03">#FFEBCE</color>
     <color name="blue_05">#EFEDFF</color>
     <color name="dark_02">#7981B2</color>
     <color name="aqua_04">#109E95</color>

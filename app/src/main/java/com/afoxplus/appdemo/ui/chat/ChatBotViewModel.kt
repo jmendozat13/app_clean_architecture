@@ -22,7 +22,11 @@ class ChatBotViewModel : BaseViewModel() {
     var user: User = User.getUserDemo()
     val allMessages: LiveData<List<Message>> = chatBotUseCase.allMessages.asLiveData()
 
+    val isButtonSendEnabled = MediatorLiveData<Boolean>()
     val chatInputTextField = MutableLiveData<String>()
+    private val inputTexValidator = LiveDataValidator(chatInputTextField).apply {
+        addRule("") { it.isNullOrBlank() }
+    }
 
     val isUserChatFormValid = MediatorLiveData<Boolean>()
     val userNameField = MutableLiveData<String>()
@@ -36,7 +40,10 @@ class ChatBotViewModel : BaseViewModel() {
 
     init {
         isUserChatFormValid.value = false
+        isButtonSendEnabled.value = false
         isUserChatFormValid.addSource(userNameField) { validateFormUserChat() }
+        isButtonSendEnabled.addSource(chatInputTextField) { validateButtonSend() }
+
     }
 
     fun onClickSendMessage() {
@@ -66,5 +73,10 @@ class ChatBotViewModel : BaseViewModel() {
     private fun validateFormUserChat() {
         val validatorResolver = LiveDataValidatorResolver(listOf(userNameValidator))
         isUserChatFormValid.value = validatorResolver.isValid()
+    }
+
+    private fun validateButtonSend() {
+        val validatorResolver = LiveDataValidatorResolver(listOf(inputTexValidator))
+        isButtonSendEnabled.value = validatorResolver.isValid()
     }
 }

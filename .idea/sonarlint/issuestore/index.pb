@@ -2,8 +2,6 @@
 :
 
 .gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
-r
-Bapp/src/main/java/com/afoxplus/appdemo/ui/splash/SplashActivity.kt,b\4\b41da1ef0919d8c6d50c86657cf72ef9250df18a
 p
 @domain/src/main/java/com/afoxplus/domain/usecases/BaseUseCase.kt,4\b\4b38fae1401b65861fe7073055b882e34b4e1233
 q
@@ -84,8 +82,6 @@ A
 data/build.gradle,7\2\72c2781d3d9ac8b82a3543f0fba5c796b2975232
 C
 domain/build.gradle,a\3\a3021bb5ba623a461b5fdb89ae51923a4945c354
-<
-build.gradle,f\0\f07866736216be0ee2aba49e392191aeae700a35
 x
 Happ/src/main/java/com/afoxplus/appdemo/core/adapters/ViewPagerAdapter.kt,6\0\6083471bef8be03e9068322aa29c1f9d89792074
 w
@@ -98,3 +94,13 @@ Sdata/src/main/java/com/afoxplus/data/source/network/chat/service/IChatBotServic
 Napp/src/main/java/com/afoxplus/appdemo/ui/chat/adapter/ChatBotOptionAdapter.kt,d\b\db573eba96a964317410af14c1a0b5e1ee964e81
 s
 Capp/src/main/java/com/afoxplus/appdemo/core/validators/Validator.kt,3\6\36b8fe994b89d0828119b3ae14cb90060c65d65a
+n
+>app/src/main/java/com/afoxplus/appdemo/ui/main/MainActivity.kt,8\3\83f3e891268970099eee5ed067444aa2879515df
+<
+build.gradle,f\0\f07866736216be0ee2aba49e392191aeae700a35
+r
+Bapp/src/main/java/com/afoxplus/appdemo/ui/chat/ChatBotViewModel.kt,1\5\152ec0a8c5817195f302bd6ecd4e85103772b8d4
+n
+>app/src/main/java/com/afoxplus/appdemo/ui/chat/ChatFragment.kt,3\e\3eab7cef5232ccaa0d52bdbca52109d5cb3739b0
+r
+Bapp/src/main/java/com/afoxplus/appdemo/ui/splash/SplashActivity.kt,b\4\b41da1ef0919d8c6d50c86657cf72ef9250df18a
