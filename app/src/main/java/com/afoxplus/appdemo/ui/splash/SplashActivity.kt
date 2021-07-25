@@ -15,19 +15,13 @@ class SplashActivity : BaseActivity() {
     override fun setMainView() {
         bindingSplashActivity = ActivitySplashBinding.inflate(layoutInflater)
         setContentView(bindingSplashActivity.root)
+    }
 
+    override fun onSetUp() {
         lifecycleScope.launch(Dispatchers.Main) {
             delay(4000)
             finish()
             MainActivity.start(this@SplashActivity)
         }
-    }
-
-    override fun setUpView() {
-        // Do nothing
-    }
-
-    override fun viewModelObserver() {
-        // Do nothing
     }
 }

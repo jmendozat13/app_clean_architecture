@@ -1,6 +1,8 @@
 package com.afoxplus.appdemo.ui.chat
 
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import com.afoxplus.appdemo.databinding.FragmentChatBinding
 import com.afoxplus.appdemo.ui.BaseFragment
 import com.afoxplus.appdemo.ui.chat.adapter.ChatBotAdapter
@@ -16,19 +18,19 @@ class ChatFragment : BaseFragment() {
         ChatBotAdapter(user = viewModel.user)
     }
 
-    override fun getMainView(): View {
-        bindingChat = FragmentChatBinding.inflate(layoutInflater)
+    override fun getMainView(inflater: LayoutInflater, container: ViewGroup?): View {
+        bindingChat = FragmentChatBinding.inflate(inflater, container, false)
         bindingChat.lifecycleOwner = viewLifecycleOwner
         bindingChat.adapter = adapter
         bindingChat.viewModel = viewModel
         return bindingChat.root
     }
 
-    override fun setUpView() {
+    override fun onSetUp() {
         adapter.setOnClickMessageListener(::onClickMessage)
     }
 
-    override fun viewModelObserver() {
+    override fun onObserverViewModel() {
         viewModel.allMessages.observe(this) {
             adapter.submitList(it)
             bindingChat.recycler.scrollToPosition(it.size - 1)
