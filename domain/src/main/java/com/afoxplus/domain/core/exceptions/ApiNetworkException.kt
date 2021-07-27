@@ -1,4 +1,4 @@
-package com.afoxplus.domain.exceptions
+package com.afoxplus.domain.core.exceptions
 
 class ApiNetworkException(
     val code: Int,

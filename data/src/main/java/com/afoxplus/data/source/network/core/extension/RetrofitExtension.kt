@@ -1,6 +1,6 @@
 package com.afoxplus.data.source.network.core.extension
 
-import com.afoxplus.domain.exceptions.ApiNetworkException
+import com.afoxplus.domain.core.exceptions.ApiNetworkException
 import retrofit2.Response
 
 inline fun <T : Any> Response<T>.onSuccess(action: (T) -> Unit): Response<T> {

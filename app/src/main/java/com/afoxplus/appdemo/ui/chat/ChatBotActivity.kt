@@ -22,16 +22,15 @@ class ChatBotActivity : BaseActivity() {
 
     override fun setMainView() {
         bindingChatBot = ActivityChatbotBinding.inflate(layoutInflater)
-        bindingChatBot.lifecycleOwner = this
         setContentView(bindingChatBot.root)
     }
 
-    override fun setUpView() {
+    override fun onSetUp() {
         bindingChatBot.toolbar.setNavigationOnClickListener { onBackPressed() }
         userViewModel.getUser()
     }
 
-    override fun viewModelObserver() {
+    override fun onObserverViewModel() {
         viewModel.eventOnContinue.observe(this, EventObserver { userName ->
             userViewModel.saveUserByName(userName)
             viewModel.user = User(name = userName)
