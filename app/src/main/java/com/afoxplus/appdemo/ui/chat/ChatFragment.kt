@@ -3,16 +3,17 @@ package com.afoxplus.appdemo.ui.chat
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.activityViewModels
 import com.afoxplus.appdemo.databinding.FragmentChatBinding
 import com.afoxplus.appdemo.ui.BaseFragment
 import com.afoxplus.appdemo.ui.chat.adapter.ChatBotAdapter
 import com.afoxplus.domain.entities.chat.OptionMessage
-import org.koin.androidx.viewmodel.ext.android.sharedViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class ChatFragment : BaseFragment() {
     private lateinit var bindingChat: FragmentChatBinding
-    private val viewModel: ChatBotViewModel by sharedViewModel()
+    private val viewModel: ChatBotViewModel by activityViewModels()
 
     private val adapter: ChatBotAdapter by lazy {
         ChatBotAdapter(user = viewModel.user)

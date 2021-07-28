@@ -4,11 +4,10 @@ import androidx.paging.PagingSource
 import com.afoxplus.data.source.local.database.music.dao.TrackDao
 import com.afoxplus.data.source.local.database.music.model.TrackModel
 import com.afoxplus.domain.entities.music.Track
-import org.koin.core.inject
+import javax.inject.Inject
 
-class TrackLocalDataSource : ITrackLocalDataSource {
-
-    private val trackDao: TrackDao by inject()
+class TrackLocalDataSource @Inject constructor(private val trackDao: TrackDao) :
+    ITrackLocalDataSource {
 
     override suspend fun insertAll(tracks: List<Track>) {
         trackDao.insertAll(TrackModel.toTrackModelList(tracks))

@@ -1,6 +1,5 @@
 package com.afoxplus.appdemo.ui
 
 import androidx.lifecycle.ViewModel
-import org.koin.core.KoinComponent
 
-open class BaseViewModel : ViewModel(), KoinComponent
+open class BaseViewModel : ViewModel()

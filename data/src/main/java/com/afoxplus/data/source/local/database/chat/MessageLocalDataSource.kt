@@ -9,14 +9,14 @@ import com.afoxplus.domain.entities.chat.OptionMessage
 import com.afoxplus.domain.entities.chat.TypeMessage
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
-import org.koin.core.inject
 import java.util.*
+import javax.inject.Inject
 
-class MessageLocalDataBase : IMessageLocalDataSource {
-
-    private val messageDao: MessageDao by inject()
-    private val optionMessageDao: OptionMessageDao by inject()
-
+class MessageLocalDataSource @Inject constructor(
+    private val messageDao: MessageDao,
+    private val optionMessageDao: OptionMessageDao
+) : IMessageLocalDataSource {
+    
     override suspend fun saveMessage(message: Message): Long =
         messageDao.insertOneMessage(MessageModel.toMessageModel(message))
 

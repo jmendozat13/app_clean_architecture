@@ -1,3 +1,5 @@
 package com.afoxplus.domain.core.exceptions
 
-class GenericException : Exception()
+import java.io.IOException
+
+class GenericException : IOException()

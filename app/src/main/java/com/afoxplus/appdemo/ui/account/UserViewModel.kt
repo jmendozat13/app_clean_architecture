@@ -6,12 +6,12 @@ import androidx.lifecycle.viewModelScope
 import com.afoxplus.appdemo.ui.BaseViewModel
 import com.afoxplus.domain.entities.account.User
 import com.afoxplus.domain.usecases.account.UserUseCase
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
-import org.koin.core.inject
+import javax.inject.Inject
 
-class UserViewModel: BaseViewModel() {
-
-    private val userUseCase: UserUseCase by inject()
+@HiltViewModel
+class UserViewModel @Inject constructor(private val userUseCase: UserUseCase) : BaseViewModel() {
 
     private val mUser: MutableLiveData<User> by lazy { MutableLiveData<User>() }
     val user: LiveData<User> get() = mUser

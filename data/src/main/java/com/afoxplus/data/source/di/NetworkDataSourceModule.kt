@@ -2,9 +2,17 @@ package com.afoxplus.data.source.di
 
 import com.afoxplus.data.source.network.chat.ChatBotNetworkDataSource
 import com.afoxplus.data.source.network.chat.IChatBotNetworkDataSource
-import org.koin.dsl.module
+import com.afoxplus.data.source.network.chat.service.IChatBotService
+import dagger.Module
+import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.components.SingletonComponent
 
+@Module
+@InstallIn(SingletonComponent::class)
+class NetworkDataSourceModule {
 
-val networkDataSourceModule = module {
-    single<IChatBotNetworkDataSource> { ChatBotNetworkDataSource() }
+    @Provides
+    fun provideChatBotNetworkDataSource(chatBotService: IChatBotService): IChatBotNetworkDataSource =
+        ChatBotNetworkDataSource(chatBotService)
 }

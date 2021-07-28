@@ -3,10 +3,9 @@ package com.afoxplus.data.source.local.database.account
 import com.afoxplus.data.source.local.database.account.dao.UserDao
 import com.afoxplus.data.source.local.database.account.model.UserModel
 import com.afoxplus.domain.entities.account.User
-import org.koin.core.inject
+import javax.inject.Inject
 
-class UserLocalDataSource : IUserLocalDataSource {
-    private val userDao: UserDao by inject()
+class UserLocalDataSource @Inject constructor(private val userDao: UserDao) : IUserLocalDataSource {
 
     override suspend fun saveUserByName(name: String) {
         userDao.insertUser(UserModel(name))

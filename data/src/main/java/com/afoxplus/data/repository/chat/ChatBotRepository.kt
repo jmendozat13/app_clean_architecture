@@ -6,13 +6,13 @@ import com.afoxplus.domain.entities.chat.Message
 import com.afoxplus.domain.entities.chat.TypeMessage
 import com.afoxplus.domain.repository.chat.IChatBotRepository
 import kotlinx.coroutines.flow.Flow
-import org.koin.core.inject
 import java.util.*
+import javax.inject.Inject
 
-class ChatBotRepository : IChatBotRepository {
-
-    private val chatBotNetworkDataSource: IChatBotNetworkDataSource by inject()
-    private val messageLocalDataSource: IMessageLocalDataSource by inject()
+class ChatBotRepository @Inject constructor(
+    private val chatBotNetworkDataSource: IChatBotNetworkDataSource,
+    private val messageLocalDataSource: IMessageLocalDataSource
+) : IChatBotRepository {
 
     override val allMessages: Flow<List<Message>>
         get() = messageLocalDataSource.allMessages
