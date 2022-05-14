@@ -39,4 +39,21 @@ class ChatBotRepository : IChatBotRepository {
         }
     }
 
+    override suspend fun getInitialGreetings() {
+       try {
+           messageLocalDataSource.showLoadingMessage()
+           val messageResponse = chatBotNetworkDataSource.sendMessage(MSG_HELLO)
+           val messageId = messageLocalDataSource.saveMessage(messageResponse)
+           messageLocalDataSource.saveMessageOptions(messageId, messageResponse.options)
+           messageLocalDataSource.deleteLoadingMessage()
+       }catch (ex: Throwable) {
+           messageLocalDataSource.deleteLoadingMessage()
+           throw ex
+       }
+    }
+
+    companion object {
+        private const val MSG_HELLO = "Saludo inicial"
+    }
+
 }

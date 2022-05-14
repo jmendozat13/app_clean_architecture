@@ -12,11 +12,14 @@ import com.afoxplus.domain.entities.account.User
 import com.afoxplus.domain.entities.chat.Message
 import com.afoxplus.domain.entities.chat.OptionMessage
 import com.afoxplus.domain.usecases.chat.ChatBotUseCase
+import com.afoxplus.domain.usecases.chat.VerifyInitialMessage
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import org.koin.core.inject
 
 class ChatBotViewModel : BaseViewModel() {
     private val chatBotUseCase: ChatBotUseCase by inject()
+    private val verifyInitialMessage: VerifyInitialMessage by inject()
     private val context: Context by inject()
 
     var user: User = User.getUserDemo()
@@ -50,6 +53,8 @@ class ChatBotViewModel : BaseViewModel() {
             }
         }
     }
+
+    fun onInitChatBot() = viewModelScope.launch(Dispatchers.IO) { verifyInitialMessage() }
 
     fun sendOption(option: OptionMessage) = viewModelScope.launch {
         try {

@@ -18,4 +18,7 @@ class ChatBotUseCase(private val dispatcher: CoroutineDispatcher = Dispatchers.I
     suspend fun sendMessage(inputMessage: String) = withContext(dispatcher) {
         chatBotRepository.sendMessage(inputMessage)
     }
+
+    suspend fun getInitialGreetings() =
+        withContext(dispatcher) { chatBotRepository.getInitialGreetings() }
 }

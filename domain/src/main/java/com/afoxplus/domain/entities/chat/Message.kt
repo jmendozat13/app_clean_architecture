@@ -9,9 +9,9 @@ data class Message(
     val dateTime: Date,
     val id: Long = 0,
     var options: List<OptionMessage> = emptyList()
-){
+) {
     fun replaceUserName(user: User) {
-        content = content.replace("NOMBRE", user.name)
+        content = content.replace("#NOMBRE#", user.name)
     }
 }
 

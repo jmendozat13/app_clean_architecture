@@ -7,4 +7,5 @@ import kotlinx.coroutines.flow.Flow
 interface IChatBotRepository : BaseRepository {
     val allMessages: Flow<List<Message>>
     suspend fun sendMessage(inputMessage: String)
+    suspend fun getInitialGreetings()
 }

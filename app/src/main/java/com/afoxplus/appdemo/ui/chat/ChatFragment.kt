@@ -27,6 +27,7 @@ class ChatFragment : BaseFragment() {
     }
 
     override fun onSetUp() {
+        viewModel.onInitChatBot()
         adapter.setOnClickMessageListener(::onClickMessage)
     }
 
