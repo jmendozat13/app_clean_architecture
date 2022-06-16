@@ -12,6 +12,7 @@ import com.afoxplus.domain.entities.account.User
 import com.afoxplus.domain.entities.chat.Message
 import com.afoxplus.domain.entities.chat.OptionMessage
 import com.afoxplus.domain.usecases.chat.ChatBotUseCase
+import com.afoxplus.domain.usecases.chat.SendBotMessage
 import com.afoxplus.domain.usecases.chat.VerifyInitialMessage
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -19,6 +20,7 @@ import org.koin.core.inject
 
 class ChatBotViewModel : BaseViewModel() {
     private val chatBotUseCase: ChatBotUseCase by inject()
+    private val sendBotMessage: SendBotMessage by inject()
     private val verifyInitialMessage: VerifyInitialMessage by inject()
     private val context: Context by inject()
 
@@ -47,7 +49,7 @@ class ChatBotViewModel : BaseViewModel() {
             try {
                 val message = chatInputTextField.value ?: ""
                 chatInputTextField.postValue("")
-                chatBotUseCase.sendMessage(message)
+                sendBotMessage(message)
             } catch (ex: Throwable) {
                 Log.d("Error", "${ex.message}")
             }
@@ -58,7 +60,7 @@ class ChatBotViewModel : BaseViewModel() {
 
     fun sendOption(option: OptionMessage) = viewModelScope.launch {
         try {
-            chatBotUseCase.sendMessage(option.query)
+            sendBotMessage(option.query)
         } catch (ex: Throwable) {
             Log.d("Error", "${ex.message}")
         }

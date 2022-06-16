@@ -2,7 +2,9 @@ package com.afoxplus.data.repository.chat
 
 import com.afoxplus.data.source.network.chat.IChatBotNetworkDataSource
 import com.afoxplus.data.source.local.database.chat.IMessageLocalDataSource
+import com.afoxplus.data.source.network.chat.request.MessageRequest
 import com.afoxplus.domain.entities.chat.Message
+import com.afoxplus.domain.entities.chat.SendMessage
 import com.afoxplus.domain.entities.chat.TypeMessage
 import com.afoxplus.domain.repository.chat.IChatBotRepository
 import kotlinx.coroutines.flow.Flow
@@ -17,19 +19,20 @@ class ChatBotRepository : IChatBotRepository {
     override val allMessages: Flow<List<Message>>
         get() = messageLocalDataSource.allMessages
 
-    override suspend fun sendMessage(inputMessage: String) {
+    override suspend fun sendMessage(sendMessage: SendMessage) {
         try {
             val startDate: Calendar = Calendar.getInstance()
             messageLocalDataSource.deleteLoadingMessage()
             messageLocalDataSource.saveMessage(
                 Message(
                     type = TypeMessage.REQUEST,
-                    content = inputMessage,
+                    content = sendMessage.inputMessage,
                     dateTime = startDate.time
                 )
             )
             messageLocalDataSource.showLoadingMessage()
-            val messageResponse = chatBotNetworkDataSource.sendMessage(inputMessage)
+            val messageResponse =
+                chatBotNetworkDataSource.sendMessage(convertToMessageRequest(sendMessage))
             val messageId = messageLocalDataSource.saveMessage(messageResponse)
             messageLocalDataSource.saveMessageOptions(messageId, messageResponse.options)
             messageLocalDataSource.deleteLoadingMessage()
@@ -39,21 +42,25 @@ class ChatBotRepository : IChatBotRepository {
         }
     }
 
-    override suspend fun getInitialGreetings() {
-       try {
-           messageLocalDataSource.showLoadingMessage()
-           val messageResponse = chatBotNetworkDataSource.sendMessage(MSG_HELLO)
-           val messageId = messageLocalDataSource.saveMessage(messageResponse)
-           messageLocalDataSource.saveMessageOptions(messageId, messageResponse.options)
-           messageLocalDataSource.deleteLoadingMessage()
-       }catch (ex: Throwable) {
-           messageLocalDataSource.deleteLoadingMessage()
-           throw ex
-       }
+    override suspend fun getInitialGreetings(sendMessage: SendMessage) {
+        try {
+            messageLocalDataSource.showLoadingMessage()
+            val messageResponse =
+                chatBotNetworkDataSource.sendMessage(convertToMessageRequest(sendMessage))
+            val messageId = messageLocalDataSource.saveMessage(messageResponse)
+            messageLocalDataSource.saveMessageOptions(messageId, messageResponse.options)
+            messageLocalDataSource.deleteLoadingMessage()
+        } catch (ex: Throwable) {
+            messageLocalDataSource.deleteLoadingMessage()
+            throw ex
+        }
     }
 
-    companion object {
-        private const val MSG_HELLO = "Saludo inicial"
-    }
+    private fun convertToMessageRequest(sendMessage: SendMessage) =
+        MessageRequest(
+            inputMessage = sendMessage.inputMessage,
+            username = sendMessage.username,
+            userExternalId = sendMessage.userExternalId
+        )
 
 }

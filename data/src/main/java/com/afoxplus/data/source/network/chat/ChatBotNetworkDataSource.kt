@@ -12,8 +12,8 @@ import org.koin.core.inject
 class ChatBotNetworkDataSource : IChatBotNetworkDataSource, BaseNetwork() {
     private val chatBotService: IChatBotService by inject()
 
-    override suspend fun sendMessage(inputMessage: String): Message {
-        val response = chatBotService.sendMessage(MessageRequest(inputMessage = inputMessage))
+    override suspend fun sendMessage(messageRequest: MessageRequest): Message {
+        val response = chatBotService.sendMessage(messageRequest)
         var chatBot: Message? = null
         response.onSuccess { chatBotResponse -> chatBot = chatBotResponse.toMessageEntity() }
         response.onFailure { error -> throw error }
