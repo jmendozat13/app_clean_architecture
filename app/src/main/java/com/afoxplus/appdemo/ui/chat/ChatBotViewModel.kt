@@ -45,7 +45,7 @@ class ChatBotViewModel : BaseViewModel() {
     }
 
     fun onClickSendMessage() {
-        viewModelScope.launch {
+        viewModelScope.launch(Dispatchers.IO) {
             try {
                 val message = chatInputTextField.value ?: ""
                 chatInputTextField.postValue("")
@@ -58,7 +58,7 @@ class ChatBotViewModel : BaseViewModel() {
 
     fun onInitChatBot() = viewModelScope.launch(Dispatchers.IO) { verifyInitialMessage() }
 
-    fun sendOption(option: OptionMessage) = viewModelScope.launch {
+    fun sendOption(option: OptionMessage) = viewModelScope.launch(Dispatchers.IO) {
         try {
             sendBotMessage(option.query)
         } catch (ex: Throwable) {

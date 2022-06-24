@@ -10,13 +10,13 @@ import org.koin.dsl.module
 val useCaseModule = module {
     single { ChatBotUseCase() }
     single { UserUseCase() }
-    factory<VerifyInitialMessage> {
+    single<VerifyInitialMessage> {
         VerifyInitialMessageImpl(
             get<IChatBotRepository>(),
             get<IUserRepository>()
         )
     }
-    factory<SendBotMessage> {
+    single<SendBotMessage> {
         SendBotMessageImpl(
             get<IChatBotRepository>(),
             get<IUserRepository>()
