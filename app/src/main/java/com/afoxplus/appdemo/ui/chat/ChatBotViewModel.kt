@@ -29,7 +29,7 @@ class ChatBotViewModel : BaseViewModel() {
 
     val chatInputTextField = MutableLiveData<String>()
 
-    val isUserChatFormValid = MediatorLiveData<Boolean>()
+    var isUserChatFormValid = MediatorLiveData<Boolean>()
     val userNameField = MutableLiveData<String>()
     val userNameValidator = LiveDataValidator(userNameField).apply {
         addRule(context.getString(R.string.fragment_user_chat_validate)) { it.isNullOrBlank() }
@@ -66,12 +66,20 @@ class ChatBotViewModel : BaseViewModel() {
         }
     }
 
-    fun onClickContinue() = viewModelScope.launch {
-        mEventOnContinue.postValue(Event(userNameField.value ?: ""))
+    fun onClickContinue() = viewModelScope.launch(Dispatchers.Main) {
+        mEventOnContinue.value = Event(userNameField.value ?: "")
     }
 
     private fun validateFormUserChat() {
         val validatorResolver = LiveDataValidatorResolver(listOf(userNameValidator))
         isUserChatFormValid.value = validatorResolver.isValid()
+    }
+
+    fun setEnabledButtonContinue() = viewModelScope.launch {
+        isUserChatFormValid.value = true
+    }
+
+    fun setDisabledButtonContinue() = viewModelScope.launch {
+        isUserChatFormValid.value = false
     }
 }

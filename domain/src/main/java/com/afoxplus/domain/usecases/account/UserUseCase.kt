@@ -13,7 +13,8 @@ class UserUseCase(private val dispatcher: CoroutineDispatcher = Dispatchers.IO) 
     private val userRepository: IUserRepository by inject()
 
     suspend fun saveUserByName(username: String) = withContext(dispatcher) {
-        userRepository.saveUserByName(username)
+        val user = userRepository.saveNetworkUser(User(name = username))
+        userRepository.saveLocalUser(user)
     }
 
     suspend fun getUser(): User? = withContext(dispatcher) {

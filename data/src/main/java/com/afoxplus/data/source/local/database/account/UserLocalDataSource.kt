@@ -8,8 +8,9 @@ import org.koin.core.inject
 class UserLocalDataSource : IUserLocalDataSource {
     private val userDao: UserDao by inject()
 
-    override suspend fun saveUserByName(name: String) {
-        userDao.insertUser(UserModel(name))
+
+    override suspend fun saveUser(user: User) {
+        userDao.insertUser(UserModel(user.name, user.userExternalId))
     }
 
     override suspend fun getUser(): User? {

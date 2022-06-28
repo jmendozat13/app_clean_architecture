@@ -60,7 +60,7 @@ class ChatBotRepository : IChatBotRepository {
         MessageRequest(
             inputMessage = sendMessage.inputMessage,
             username = sendMessage.username,
-            userExternalId = sendMessage.userExternalId
+            userExternalId = sendMessage.username
         )
 
 }

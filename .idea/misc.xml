@@ -3,8 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Proyectos/Kendal/app_clean_architecture/app/src/main/res/layout/activity_chatbot.xml" value="0.5421875" />
         <entry key="..\:/Proyectos/Kendal/app_clean_architecture/app/src/main/res/layout/activity_splash.xml" value="0.2884963768115942" />
         <entry key="..\:/Proyectos/Kendal/app_clean_architecture/app/src/main/res/layout/fragment_chat.xml" value="0.5421875" />
+        <entry key="..\:/Proyectos/Kendal/app_clean_architecture/app/src/main/res/layout/fragment_chat_user.xml" value="0.5421875" />
       </map>
     </option>
   </component>

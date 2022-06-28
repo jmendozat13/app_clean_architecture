@@ -32,15 +32,19 @@ class ChatBotActivity : BaseActivity() {
 
     override fun onObserverViewModel() {
         viewModel.eventOnContinue.observe(this, EventObserver { userName ->
+            viewModel.setDisabledButtonContinue()
             userViewModel.saveUserByName(userName)
-            viewModel.user = User(name = userName)
-            bindingChatBot.viewPager.next()
-            viewPagerAdapter.deletePrevious()
         })
         userViewModel.user.observe(this) { user ->
             if(user != null) viewModel.user = user
             setUpChatViewPager(user)
         }
+
+        userViewModel.onUserCreateSuccess.observe(this, EventObserver { user ->
+            viewModel.user = user
+            bindingChatBot.viewPager.next()
+            viewPagerAdapter.deletePrevious()
+        })
     }
 
     private fun setUpChatViewPager(user: User?) {
