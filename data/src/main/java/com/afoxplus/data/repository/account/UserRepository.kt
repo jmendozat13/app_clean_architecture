@@ -13,10 +13,7 @@ class UserRepository : IUserRepository {
     private val userNetworkDataSource: IUserNetworkDataSource by inject()
 
     override suspend fun saveNetworkUser(user: User): User = userNetworkDataSource.createUser(
-        UserRequest(
-            username = user.name,
-            externalId = user.name
-        )
+        UserRequest(username = user.name)
     )
 
     override suspend fun saveLocalUser(user: User) = userLocalDataSource.saveUser(user)
