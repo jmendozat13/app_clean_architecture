@@ -22,7 +22,7 @@ internal class VerifyInitialMessageImpl(
                     SendMessage(
                         inputMessage = MSG_HELLO,
                         username = user?.name ?: "",
-                        userExternalId = (user?.id ?: 0).toString()
+                        userExternalId = user?.userExternalId.toString()
                     )
                 )
             }

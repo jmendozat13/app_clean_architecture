@@ -94,14 +94,8 @@ i
 9app/src/main/java/com/afoxplus/appdemo/ui/BaseFragment.kt,0\5\0530cffaa4d45eec1126c5168b52182ed08ced4d
 n
 >app/src/main/java/com/afoxplus/appdemo/ui/chat/ChatFragment.kt,3\e\3eab7cef5232ccaa0d52bdbca52109d5cb3739b0
-u
-Edomain/src/main/java/com/afoxplus/domain/entities/chat/SendMessage.kt,1\5\15479603a1ef0f1d05726bdea704ec070a6d393a
-~
-Ndomain/src/main/java/com/afoxplus/domain/usecases/chat/VerifyInitialMessage.kt,3\9\39015399b68aa0c2f70873d5b81db4b70a1ae696
 A
 gradle.properties,2\a\2afbb999f001938c88fa43fc2ef52abf0f8213e4
-
-Odomain/src/main/java/com/afoxplus/domain/core/exceptions/ApiNetworkException.kt,6\a\6aa81775c6969b7ce566d4399c646505125a3736
 ‹
 [data/src/main/java/com/afoxplus/data/source/local/database/chat/model/OptionMessageModel.kt,c\9\c9277a0212846c3a307f043090dc4e15018e8046
 …
@@ -112,5 +106,5 @@ l
 <domain/src/main/java/com/afoxplus/domain/di/UseCaseModule.kt,7\7\7781a46f5765b2c13073671adf76c2982d341205
 x
 Hdomain/src/main/java/com/afoxplus/domain/usecases/chat/ChatBotUseCase.kt,6\5\65f4420d68425f8eaff1b778cd0b142f09fe4a3f
-x
-Hdomain/src/main/java/com/afoxplus/domain/usecases/chat/SendBotMessage.kt,d\3\d3fe3cb203bda773a81cc5d0e6a7b72ba0d84f57
+
+Odomain/src/main/java/com/afoxplus/domain/core/exceptions/ApiNetworkException.kt,6\a\6aa81775c6969b7ce566d4399c646505125a3736

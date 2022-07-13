@@ -18,7 +18,7 @@ class SendBotMessageImpl(
         val message = SendMessage(
             inputMessage = input,
             username = user?.name ?: "",
-            userExternalId = (user?.id ?: 0).toString()
+            userExternalId = user?.userExternalId.toString()
         )
         chatBotRepository.sendMessage(message)
     }

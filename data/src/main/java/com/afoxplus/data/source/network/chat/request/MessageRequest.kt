@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 data class MessageRequest(
     @SerializedName("input")
     val inputMessage: String,
-    @SerializedName("userExternalId")
+    @SerializedName("userId")
     val userExternalId: String,
     @SerializedName("username")
     val username: String
