@@ -1,6 +1,7 @@
 package com.afoxplus.appdemo.ui.chat.viewholder
 
 import android.text.util.Linkify
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.afoxplus.appdemo.databinding.RowChatResponseBinding
@@ -30,6 +31,7 @@ class ChatResponseViewHolder private constructor(
         bindingResponse.responseTextMessage.movementMethod = BetterLinkMovementMethod.getInstance()
         bindingResponse.adapterOption = adapterOptions
         bindingResponse.adapterImage = adapterImages
+        Log.d("LOG_VALE", "images: ${message.images}")
         adapterOptions.setOnClickOptionListener { option ->
             onClickMessage.onClick(option)
         }

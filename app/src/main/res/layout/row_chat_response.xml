@@ -20,6 +20,7 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingStart="12dp"
@@ -71,21 +72,20 @@
                 app:layout_constraintTop_toBottomOf="@+id/messageResponse"
                 tools:itemCount="1"
                 tools:listitem="@layout/row_chat_option" />
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/responseMessageImages"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:orientation="horizontal"
-                app:adapter="@{adapterImage}"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/messageResponse"
-                tools:itemCount="1"
-                tools:listitem="@layout/row_chat_image" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/responseMessageImages"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:orientation="horizontal"
+            app:adapter="@{adapterImage}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/responseMessage"
+            tools:itemCount="2"
+            tools:listitem="@layout/row_chat_image" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

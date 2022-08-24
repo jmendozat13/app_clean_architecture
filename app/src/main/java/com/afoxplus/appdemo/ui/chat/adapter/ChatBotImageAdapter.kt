@@ -28,7 +28,6 @@ class ChatBotImageAdapter :
 
         fun bind(item: ImageMessage) {
             val options: RequestOptions = RequestOptions()
-                .centerCrop()
                 .placeholder(R.drawable.ic_placeholder)
                 .error(R.drawable.ic_placeholder)
             Glide.with(context).load(item.image).apply(options).into(binding.image)
