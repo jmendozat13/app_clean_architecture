@@ -9,5 +9,6 @@ val dataBaseModule = module {
     single { get<AppDemoDataBase>().messageDao }
     single { get<AppDemoDataBase>().trackDao }
     single { get<AppDemoDataBase>().optionMessageDao }
+    single { get<AppDemoDataBase>().imageMessageDao }
     single { get<AppDemoDataBase>().userDao }
 }

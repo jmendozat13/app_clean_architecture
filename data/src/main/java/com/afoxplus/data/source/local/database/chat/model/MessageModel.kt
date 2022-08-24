@@ -29,8 +29,9 @@ data class MessageModel(
             dateTime = message.dateTime
         )
 
-        fun toMessageList(messages: List<MessageWithOptionsModel>) =
+        fun toMessageList(messages: List<MessageWithOptionsAndImageModel>) =
             messages.map { item -> item.mapMessage() }
+
     }
 }
 

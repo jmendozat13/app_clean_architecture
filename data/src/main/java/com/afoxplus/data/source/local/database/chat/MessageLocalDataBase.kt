@@ -1,9 +1,12 @@
 package com.afoxplus.data.source.local.database.chat
 
+import com.afoxplus.data.source.local.database.chat.dao.ImageMessageDao
 import com.afoxplus.data.source.local.database.chat.dao.MessageDao
 import com.afoxplus.data.source.local.database.chat.dao.OptionMessageDao
+import com.afoxplus.data.source.local.database.chat.model.ImageMessageModel
 import com.afoxplus.data.source.local.database.chat.model.MessageModel
 import com.afoxplus.data.source.local.database.chat.model.OptionMessageModel
+import com.afoxplus.domain.entities.chat.ImageMessage
 import com.afoxplus.domain.entities.chat.Message
 import com.afoxplus.domain.entities.chat.OptionMessage
 import com.afoxplus.domain.entities.chat.TypeMessage
@@ -16,6 +19,7 @@ class MessageLocalDataBase : IMessageLocalDataSource {
 
     private val messageDao: MessageDao by inject()
     private val optionMessageDao: OptionMessageDao by inject()
+    private val imageMessageDao: ImageMessageDao by inject()
 
     override suspend fun saveMessage(message: Message): Long =
         messageDao.insertOneMessage(MessageModel.toMessageModel(message))
@@ -48,5 +52,10 @@ class MessageLocalDataBase : IMessageLocalDataSource {
     override suspend fun saveMessageOptions(messageId: Long, options: List<OptionMessage>) {
         val msOptions = OptionMessageModel.mapListToOptionMessageModel(messageId, options)
         optionMessageDao.insert(*msOptions.toTypedArray())
+    }
+
+    override suspend fun saveMessageImage(messageId: Long, images: List<ImageMessage>) {
+        val msImages = ImageMessageModel.mapListToImageMessageModel(messageId, images = images)
+        imageMessageDao.insert(*msImages.toTypedArray())
     }
 }

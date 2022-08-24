@@ -35,6 +35,7 @@ class ChatBotRepository : IChatBotRepository {
                 chatBotNetworkDataSource.sendMessage(convertToMessageRequest(sendMessage))
             val messageId = messageLocalDataSource.saveMessage(messageResponse)
             messageLocalDataSource.saveMessageOptions(messageId, messageResponse.options)
+            messageLocalDataSource.saveMessageImage(messageId, messageResponse.images)
             messageLocalDataSource.deleteLoadingMessage()
         } catch (ex: Throwable) {
             messageLocalDataSource.deleteLoadingMessage()
@@ -49,6 +50,7 @@ class ChatBotRepository : IChatBotRepository {
                 chatBotNetworkDataSource.sendMessage(convertToMessageRequest(sendMessage))
             val messageId = messageLocalDataSource.saveMessage(messageResponse)
             messageLocalDataSource.saveMessageOptions(messageId, messageResponse.options)
+            messageLocalDataSource.saveMessageImage(messageId, messageResponse.images)
             messageLocalDataSource.deleteLoadingMessage()
         } catch (ex: Throwable) {
             messageLocalDataSource.deleteLoadingMessage()

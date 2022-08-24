@@ -8,7 +8,8 @@ data class Message(
     var content: String,
     val dateTime: Date,
     val id: Long = 0,
-    var options: List<OptionMessage> = emptyList()
+    var options: List<OptionMessage> = emptyList(),
+    var images: List<ImageMessage> = emptyList()
 ) {
     fun replaceUserName(user: User) {
         content = content.replace("#NOMBRE#", user.name)
@@ -16,3 +17,4 @@ data class Message(
 }
 
 data class OptionMessage(val title: String, val query: String, val id: Long = 0)
+data class ImageMessage(val image: String, val id: Long = 0)

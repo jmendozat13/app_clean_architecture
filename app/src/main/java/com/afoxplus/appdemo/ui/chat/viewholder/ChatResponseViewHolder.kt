@@ -4,6 +4,7 @@ import android.text.util.Linkify
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.afoxplus.appdemo.databinding.RowChatResponseBinding
+import com.afoxplus.appdemo.ui.chat.adapter.ChatBotImageAdapter
 import com.afoxplus.appdemo.ui.chat.adapter.ChatBotOptionAdapter
 import com.afoxplus.appdemo.ui.chat.adapter.OnClickMessageListener
 import com.afoxplus.domain.entities.account.User
@@ -17,6 +18,7 @@ class ChatResponseViewHolder private constructor(
 ) : ChatViewHolder(bindingResponse.root) {
 
     private val adapterOptions: ChatBotOptionAdapter by lazy { ChatBotOptionAdapter() }
+    private val adapterImages: ChatBotImageAdapter by lazy { ChatBotImageAdapter() }
 
     override fun bind(message: Message) {
         message.replaceUserName(user)
@@ -27,10 +29,12 @@ class ChatResponseViewHolder private constructor(
         )
         bindingResponse.responseTextMessage.movementMethod = BetterLinkMovementMethod.getInstance()
         bindingResponse.adapterOption = adapterOptions
+        bindingResponse.adapterImage = adapterImages
         adapterOptions.setOnClickOptionListener { option ->
             onClickMessage.onClick(option)
         }
         adapterOptions.submitList(message.options)
+        adapterImages.submitList(message.images)
         bindingResponse.executePendingBindings()
     }
 

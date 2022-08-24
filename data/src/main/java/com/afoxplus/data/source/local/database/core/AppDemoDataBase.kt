@@ -7,8 +7,10 @@ import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import com.afoxplus.data.source.local.database.account.dao.UserDao
 import com.afoxplus.data.source.local.database.account.model.UserModel
+import com.afoxplus.data.source.local.database.chat.dao.ImageMessageDao
 import com.afoxplus.data.source.local.database.chat.dao.MessageDao
 import com.afoxplus.data.source.local.database.chat.dao.OptionMessageDao
+import com.afoxplus.data.source.local.database.chat.model.ImageMessageModel
 import com.afoxplus.data.source.local.database.music.dao.TrackDao
 import com.afoxplus.data.source.local.database.chat.model.MessageModel
 import com.afoxplus.data.source.local.database.chat.model.OptionMessageModel
@@ -19,9 +21,10 @@ import com.afoxplus.data.source.local.database.music.model.TrackModel
     entities = [
         MessageModel::class,
         OptionMessageModel::class,
+        ImageMessageModel::class,
         UserModel::class,
         TrackModel::class
-        ],
+    ],
     version = 1,
     exportSchema = false
 )
@@ -32,6 +35,7 @@ abstract class AppDemoDataBase : RoomDatabase() {
     abstract val optionMessageDao: OptionMessageDao
     abstract val trackDao: TrackDao
     abstract val userDao: UserDao
+    abstract val imageMessageDao: ImageMessageDao
 
     companion object {
         fun getDatabase(

@@ -2,7 +2,7 @@ package com.afoxplus.data.source.local.database.chat.dao
 
 import androidx.room.*
 import com.afoxplus.data.source.local.database.chat.model.MessageModel
-import com.afoxplus.data.source.local.database.chat.model.MessageWithOptionsModel
+import com.afoxplus.data.source.local.database.chat.model.MessageWithOptionsAndImageModel
 import kotlinx.coroutines.flow.Flow
 
 @Dao
@@ -21,5 +21,5 @@ interface MessageDao {
 
     @Transaction
     @Query("SELECT *FROM messages ORDER BY dateTime ASC")
-    fun readMessage(): Flow<List<MessageWithOptionsModel>>
+    fun readMessage(): Flow<List<MessageWithOptionsAndImageModel>>
 }

@@ -1,5 +1,6 @@
 package com.afoxplus.data.source.network.chat.response
 
+import com.afoxplus.domain.entities.chat.ImageMessage
 import com.afoxplus.domain.entities.chat.Message
 import com.afoxplus.domain.entities.chat.OptionMessage
 import com.afoxplus.domain.entities.chat.TypeMessage
@@ -8,13 +9,15 @@ import java.util.*
 
 data class MessageResponse(
     @SerializedName("outputmessage") val message: String? = null,
-    @SerializedName("options") val options: List<OptionMessageResponse>? = null
+    @SerializedName("options") val options: List<OptionMessageResponse>? = null,
+    @SerializedName("images") val images: List<String>? = null
 ) {
     fun toMessageEntity(): Message = Message(
         type = TypeMessage.RESPONSE,
         content = message ?: "",
         dateTime = Calendar.getInstance().time,
-        options = options?.map { item -> item.toOptionMessage() } ?: emptyList()
+        options = options?.map { item -> item.toOptionMessage() } ?: emptyList(),
+        images = images?.map { item -> ImageMessage(image = item) } ?: emptyList()
     )
 }
 

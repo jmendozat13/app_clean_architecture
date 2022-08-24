@@ -13,6 +13,10 @@
             name="adapterOption"
             type="com.afoxplus.appdemo.ui.chat.adapter.ChatBotOptionAdapter" />
 
+        <variable
+            name="adapterImage"
+            type="com.afoxplus.appdemo.ui.chat.adapter.ChatBotImageAdapter" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -67,6 +71,20 @@
                 app:layout_constraintTop_toBottomOf="@+id/messageResponse"
                 tools:itemCount="1"
                 tools:listitem="@layout/row_chat_option" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/responseMessageImages"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:orientation="horizontal"
+                app:adapter="@{adapterImage}"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/messageResponse"
+                tools:itemCount="1"
+                tools:listitem="@layout/row_chat_image" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
